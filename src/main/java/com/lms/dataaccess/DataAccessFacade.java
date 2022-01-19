@@ -9,10 +9,10 @@ import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.List;
 
-import business.Book;
-import business.BookCopy;
-import business.LibraryMember;
-import dataaccess.DataAccessFacade.StorageType;
+import com.lms.business.Book;
+import com.lms.business.BookCopy;
+import com.lms.business.LibraryMember;
+import com.lms.dataaccess.DataAccessFacade.StorageType;
 
 
 public class DataAccessFacade implements DataAccess {

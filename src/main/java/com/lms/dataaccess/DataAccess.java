@@ -2,9 +2,9 @@ package com.lms.dataaccess;
 
 import java.util.HashMap;
 
-import business.Book;
-import business.LibraryMember;
-import dataaccess.DataAccessFacade.StorageType;
+import com.lms.business.Book;
+import com.lms.business.LibraryMember;
+import com.lms.dataaccess.DataAccessFacade.StorageType;
 
 public interface DataAccess { 
 	public HashMap<String,Book> readBooksMap();
