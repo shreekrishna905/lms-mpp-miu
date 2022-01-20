@@ -10,6 +10,7 @@ import java.io.IOException;
 
 public class MemberViewWindow extends Stage implements Window {
 
+    public static MemberViewWindow INSTANCE = new MemberViewWindow();
 
     FXMLLoader fxmlLoader;
 
@@ -21,7 +22,7 @@ public class MemberViewWindow extends Stage implements Window {
     public void init() {
         try{
             fxmlLoader = new FXMLLoader(ApplicationStartUp.class.getResource("member-view.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 418, 529);
+            Scene scene = new Scene(fxmlLoader.load(), 693, 480);
             scene.setFill(Color.TRANSPARENT);
             setScene(scene);
             setTitle("Member View");

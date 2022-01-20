@@ -10,6 +10,7 @@ import java.io.IOException;
 
 public class BookViewWindow extends Stage implements Window{
 
+    public static BookViewWindow INSTANCE = new BookViewWindow();
 
     FXMLLoader fxmlLoader;
 

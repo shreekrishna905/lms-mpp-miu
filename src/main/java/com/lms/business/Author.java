@@ -1,6 +1,8 @@
 package com.lms.business;
 
-public class Author {
+import java.io.Serializable;
+
+public class Author implements Serializable {
     private String firstName;
     private String lastName;
     private String phoneNumber;

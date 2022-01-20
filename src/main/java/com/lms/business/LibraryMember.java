@@ -1,6 +1,8 @@
 package com.lms.business;
 
-public class LibraryMember {
+import java.io.Serializable;
+
+public class LibraryMember implements Serializable {
     private String memberId;
     private  String firstName;
     private  String lastName;

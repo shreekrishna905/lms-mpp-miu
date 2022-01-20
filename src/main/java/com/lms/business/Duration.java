@@ -1,6 +1,8 @@
 package com.lms.business;
 
-public enum Duration {
+import java.io.Serializable;
+
+public enum Duration implements Serializable {
     TWENTY_ONE("21"), SEVEN("7");
     private String value;
 

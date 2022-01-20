@@ -14,7 +14,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lms.controller.LoginView">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lms.controller.LoginViewController">
    <children>
       <BorderPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #fff;">
          <left>
@@ -49,9 +49,9 @@
                <children>
                   <Pane prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <TextField fx:id="txtUsername" layoutX="56.0" layoutY="115.0" prefHeight="35.0" prefWidth="245.0" promptText="Username" />
+                        <TextField fx:id="txtUserName" layoutX="56.0" layoutY="115.0" prefHeight="35.0" prefWidth="245.0" promptText="Username" />
                         <PasswordField fx:id="txtPassword" layoutX="57.0" layoutY="183.0" prefHeight="35.0" prefWidth="245.0" promptText="Password" />
-                        <Button fx:id="btnLogin" layoutX="179.0" layoutY="246.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="120.0" stylesheets="@style/style.css" text="Login" />
+                        <Button fx:id="btnLogin" layoutX="179.0" layoutY="246.0" mnemonicParsing="false" onAction="#login" prefHeight="35.0" prefWidth="120.0" stylesheets="@style/style.css" text="Login" />
                         <Label layoutX="56.0" layoutY="54.0" prefHeight="26.0" prefWidth="57.0" style="-fx-background-color: #ffffff;" text="Login">
                            <font>
                               <Font size="18.0" />

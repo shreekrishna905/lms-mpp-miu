@@ -1,10 +1,11 @@
 package com.lms.business;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Book {
+public class Book implements Serializable {
     private String isbn;
     private Duration duration;
     private String title;
