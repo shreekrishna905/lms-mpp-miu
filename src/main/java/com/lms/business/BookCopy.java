@@ -1,6 +1,8 @@
 package com.lms.business;
 
-public class BookCopy {
+import java.io.Serializable;
+
+public class BookCopy implements Serializable {
     private String bookCopyNumber;
     private boolean isAvailable;
 

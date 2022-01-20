@@ -1,6 +1,7 @@
 package com.lms.ui;
 
 import com.lms.ApplicationStartUp;
+import com.lms.dataaccess.Auth;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
@@ -27,6 +28,18 @@ public class LoginViewWindow extends Stage implements Window{
             setResizable(false);
         } catch (IOException exception){
 
+        }
+    }
+
+    public void loginSuccessful(Auth currentAuth) {
+        switch (currentAuth) {
+            case ADMIN -> {
+                BookViewWindow.INSTANCE.init();
+            }
+            case LIBRARIAN -> {
+                MemberViewWindow.INSTANCE.init();
+            }
+            case BOTH -> AddBookWindow.INSTANCE.init();
         }
     }
 
