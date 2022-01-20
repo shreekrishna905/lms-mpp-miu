@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="374.0" prefWidth="523.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane prefHeight="54.0" prefWidth="523.0" style="-fx-background-color: #3f2863;">
+         <children>
+            <Label layoutX="172.0" layoutY="14.0" prefHeight="27.0" prefWidth="179.0" text="Add Book Information" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <TextField layoutX="53.0" layoutY="79.0" prefHeight="26.0" prefWidth="195.0" promptText="Title" />
+      <TextField layoutX="287.0" layoutY="79.0" prefHeight="26.0" prefWidth="179.0" promptText="ISBN" />
+      <Button layoutX="130.0" layoutY="314.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="264.0" stylesheets="@style/style.css" text="Add Book" textFill="WHITE" />
+      <ComboBox layoutX="53.0" layoutY="125.0" opacity="0.73" prefHeight="26.0" prefWidth="195.0" promptText="Duration" />
+      <TextField layoutX="287.0" layoutY="125.0" prefHeight="26.0" prefWidth="179.0" promptText="Number of copy" />
+      <GridPane layoutX="53.0" layoutY="159.0" prefHeight="130.0" prefWidth="414.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="51.60001220703125" minHeight="10.0" prefHeight="37.59998779296875" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="84.4" minHeight="10.0" prefHeight="76.00001220703125" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" stylesheets="@style/style.css" text="Add Author">
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="PLUS" />
+               </graphic>
+            </Button>
+            <TableView prefHeight="104.0" prefWidth="414.0" stylesheets="@style/style.css" GridPane.rowIndex="1">
+              <columns>
+                <TableColumn prefWidth="86.40003204345703" text="FIRST NAME" />
+                <TableColumn prefWidth="76.79998779296875" text="LAST NAME" />
+                  <TableColumn prefWidth="70.39996337890625" text="ADDRESS" />
+                  <TableColumn prefWidth="87.20001220703125" text="PHONE NO" />
+                  <TableColumn prefWidth="93.5999755859375" text="SHORT BIO" />
+              </columns>
+            </TableView>
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>

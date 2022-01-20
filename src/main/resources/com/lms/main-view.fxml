@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="693.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox layoutY="-1.0" prefHeight="486.0" prefWidth="186.0" style="-fx-background-color: #3f2863;">
+         <children>
+            <Pane prefHeight="96.0" prefWidth="186.0">
+               <children>
+                  <Label layoutX="72.0" layoutY="53.0" text="VS3-LMS" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <HBox layoutX="13.0" layoutY="14.0" prefHeight="21.0" spacing="5.0">
+                     <children>
+                        <Circle fill="#e4c473" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="#5ee45e" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="#c4643c" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
+                     </children>
+                  </HBox>
+                  <ImageView fitHeight="43.0" fitWidth="52.0" layoutX="36.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icon/library.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="190.0" styleClass="button-menu" stylesheets="@style/style.css" text="Member">
+               <padding>
+                  <Insets left="40.0" />
+               </padding>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="USERS" />
+               </graphic>
+            </Button>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="189.0" styleClass="button-menu" stylesheets="@style/style.css" text="Book">
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="BOOK" />
+               </graphic>
+               <padding>
+                  <Insets left="40.0" />
+               </padding>
+            </Button>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="194.0" styleClass="button-menu" stylesheets="@style/style.css" text="Logout">
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" />
+               </graphic>
+               <padding>
+                  <Insets left="40.0" />
+               </padding>
+            </Button>
+         </children>
+      </VBox>
+      <VBox layoutX="198.0" layoutY="141.0" prefHeight="338.0" prefWidth="483.0">
+         <children>
+            <GridPane prefHeight="317.0" prefWidth="483.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="100.00000610351563" minHeight="0.0" prefHeight="30.599993896484378" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="312.6" minHeight="10.0" prefHeight="271.40000610351564" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <TableView prefHeight="293.0" prefWidth="483.0" stylesheets="@style/style.css" GridPane.rowIndex="1">
+                    <columns>
+                      <TableColumn prefWidth="75.0" text="MEMBER ID" />
+                      <TableColumn prefWidth="96.79998779296875" text="FIRST NAME" />
+                        <TableColumn prefWidth="96.79998779296875" text="LAST NAME" />
+                        <TableColumn prefWidth="120.0" text="PHONE NUMBER" />
+                        <TableColumn prefWidth="89.5999755859375" text="ADDRESS" />
+                    </columns>
+                  </TableView>
+                  <HBox prefHeight="18.0" prefWidth="483.0" spacing="10.0">
+                     <children>
+                        <TextField prefHeight="26.0" prefWidth="224.0" style="-fx-border-color: #353B63;" />
+                        <Button graphicTextGap="10.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="109.0" stylesheets="@style/style.css" text="SEARCH">
+                           <graphic>
+                              <FontAwesomeIconView fill="WHITE" glyphName="SEARCH" />
+                           </graphic>
+                        </Button>
+                        <Button graphicTextGap="10.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="163.0" stylesheets="@style/style.css" text="Add Member">
+                           <graphic>
+                              <FontAwesomeIconView fill="WHITE" glyphName="PLUS" text="" />
+                           </graphic>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </GridPane>
+         </children>
+      </VBox>
+      <Pane layoutX="186.0" layoutY="42.0" prefHeight="82.0" prefWidth="508.0" style="-fx-background-color: #7156DD;">
+         <children>
+            <Label layoutX="23.0" layoutY="25.0" text="home/members" textFill="WHITE" />
+            <Label layoutX="22.0" layoutY="37.0" prefHeight="35.0" prefWidth="108.0" text="Member" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
