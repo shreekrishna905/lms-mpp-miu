@@ -1,8 +1,5 @@
 package com.lms.dataaccess;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
+import java.io.*;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -21,9 +18,9 @@ public class DataAccessFacade implements DataAccess {
 		BOOKS, MEMBERS, USERS;
 	}
 
-	public static final String OUTPUT_DIR = "D:/workspace/MIU-MPP/Day07 Project - Library/src/dataaccess/storage";
-//	public static final String OUTPUT_DIR = System.getProperty("user.dir")
-//			+ "\\src\\dataaccess\\storage";
+	public static final String OUTPUT_DIR = System.getProperty("user.dir") + File.separator +
+			"src" + File.separator + "main" + File.separator + "java" + File.separator + "com" + File.separator + "lms" + File.separator + "dataaccess" + File.separator + "storage";
+
 	public static final String DATE_PATTERN = "MM/dd/yyyy";
 
 	//implement: other save operations

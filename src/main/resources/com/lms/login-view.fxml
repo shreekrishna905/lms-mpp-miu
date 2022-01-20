@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lms.controller.LoginView">
+   <children>
+      <BorderPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #fff;">
+         <left>
+            <Pane prefHeight="400.0" prefWidth="242.0" styleClass="linear-grad" stylesheets="@style/style.css" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="175.0" fitWidth="105.0" layoutX="60.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icon/library.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="100.0" layoutY="230.0" opacity="0.62" text="VS3" textFill="#f7f4f4">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="39.0" layoutY="260.0" opacity="0.62" text="Library Management System" textFill="#dcd9d9">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <HBox layoutX="10.0" layoutY="14.0" prefHeight="21.0" spacing="5.0">
+                     <children>
+                        <Circle fill="#e4c473" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="#5ee45e" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="#c4643c" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
+                     </children>
+                  </HBox>
+               </children></Pane>
+         </left>
+         <center>
+            <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="txtUsername" layoutX="56.0" layoutY="115.0" prefHeight="35.0" prefWidth="245.0" promptText="Username" />
+                        <PasswordField fx:id="txtPassword" layoutX="57.0" layoutY="183.0" prefHeight="35.0" prefWidth="245.0" promptText="Password" />
+                        <Button fx:id="btnLogin" layoutX="179.0" layoutY="246.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="120.0" stylesheets="@style/style.css" text="Login" />
+                        <Label layoutX="56.0" layoutY="54.0" prefHeight="26.0" prefWidth="57.0" style="-fx-background-color: #ffffff;" text="Login">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+               </children>
+            </StackPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
