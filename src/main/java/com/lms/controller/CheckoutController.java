@@ -7,7 +7,11 @@ import com.lms.exception.EntityNotFoundException;
 import com.lms.service.CheckoutService;
 import com.lms.service.CheckoutServiceImpl;
 import com.lms.ui.LoginViewWindow;
-import com.lms.utils.*;
+import com.lms.ui.OverdueWindow;
+import com.lms.ui.SearchCheckoutWindow;
+import com.lms.utils.ApplicationInfo;
+import com.lms.utils.Constants;
+import com.lms.utils.LmsDialog;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -30,15 +34,11 @@ public class CheckoutController {
     @FXML
     private TableView tblCheckout;
 
-    private RowData rowData;
-
     @FXML
-    public void print(ActionEvent event){
-        if(this.rowData==null)
-            return;
-        System.out.format("%-15s%-15s%-15s%-15s\n", "MEMBER ID","ISBN", "CHECKOUT DATE", "DUE DATE");
-        System.out.format("%-15d%-15s%-15s%-15s\n", rowData.getMemberId(), rowData.getIsbn(), rowData.getCheckoutDate(), rowData.getDueDate());
+    public void overdue(){
+        ApplicationInfo.show(new OverdueWindow());
     }
+
 
     @FXML
     public void checkout(ActionEvent event){
@@ -54,7 +54,6 @@ public class CheckoutController {
             return;
         }
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(DataAccessFacade.DATE_PATTERN);
-        rowData = new RowData(checkoutRecord.getLibraryMember().getMemberId(), checkoutRecord.getBookCopy().getBook().getIsbn(),checkoutRecord.getCheckoutDateTime().format(dateTimeFormatter),checkoutRecord.getDueDateTime().format(dateTimeFormatter));
         tblCheckout.setItems(FXCollections.observableArrayList(new RowData(checkoutRecord.getLibraryMember().getMemberId(),checkoutRecord.getBookCopy().getBook().getIsbn(),checkoutRecord.getCheckoutDateTime().format(dateTimeFormatter),checkoutRecord.getDueDateTime().format(dateTimeFormatter))));
     }
 
@@ -64,13 +63,17 @@ public class CheckoutController {
         ApplicationInfo.show(new LoginViewWindow());
     }
 
+    @FXML
+    public void showSearch(ActionEvent event){
+        ApplicationInfo.show(new SearchCheckoutWindow());
+    }
 
     private boolean isInvalid(String memberId, String isbn) {
         return memberId.trim().isEmpty() || isbn.trim().isEmpty();
 
     }
 
-    public class RowData {
+    public static class RowData {
         String isbn;
         String memberId;
         String checkoutDate;

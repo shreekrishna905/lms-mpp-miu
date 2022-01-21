@@ -16,10 +16,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="693.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lms.controller.CheckoutController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="693.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lms.controller.SearchCheckoutController">
    <children>
       <VBox layoutY="-1.0" prefHeight="486.0" prefWidth="186.0" style="-fx-background-color: #3f2863;">
          <children>
@@ -30,13 +29,7 @@
                         <Font size="13.0" />
                      </font>
                   </Label>
-                  <HBox layoutX="13.0" layoutY="14.0" prefHeight="21.0" spacing="5.0">
-                     <children>
-                        <Circle fill="#e4c473" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Circle fill="#5ee45e" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Circle fill="#c4643c" radius="6.0" stroke="BLACK" strokeType="INSIDE" />
-                     </children>
-                  </HBox>
+                  <HBox layoutX="13.0" layoutY="14.0" prefHeight="21.0" spacing="5.0" />
                   <ImageView fitHeight="43.0" fitWidth="52.0" layoutX="36.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@icon/library.png" />
@@ -44,32 +37,31 @@
                   </ImageView>
                </children>
             </Pane>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#showSearch" prefHeight="43.0" prefWidth="190.0" styleClass="button-menu" stylesheets="@style/style.css" text="Member">
+            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#showCheckout" prefHeight="43.0" prefWidth="190.0" styleClass="button-menu" stylesheets="@style/style.css" text="Member">
                <padding>
                   <Insets left="40.0" />
                </padding>
             </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#showSearch" prefHeight="43.0" prefWidth="190.0" styleClass="button-menu" stylesheets="@style/style.css" text="Book">
+            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#showCheckout" prefHeight="43.0" prefWidth="190.0" styleClass="button-menu" stylesheets="@style/style.css" text="Book">
                <padding>
                   <Insets left="40.0" />
                </padding>
             </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="190.0" style="-fx-background-color: #7156DD;" styleClass="button-menu" stylesheets="@style/style.css" text="Checkout">
+            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#showCheckout" prefHeight="43.0" prefWidth="190.0" styleClass="button-menu" stylesheets="@style/style.css" text="Checkout">
                <padding>
                   <Insets left="40.0" />
                </padding>
             </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#showSearch" prefHeight="43.0" prefWidth="190.0" styleClass="button-menu" stylesheets="@style/style.css" text="Search">
+            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="190.0" style="-fx-background-color: #7156DD;" styleClass="button-menu" stylesheets="@style/style.css" text="Search">
                <padding>
                   <Insets left="40.0" />
                </padding>
             </Button>
-             <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#overdue" prefHeight="43.0" prefWidth="190.0" styleClass="button-menu" stylesheets="@style/style.css" text="Overdues">
-                 <padding>
-                     <Insets left="40.0" />
-                 </padding>
-             </Button>
-
+            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#showOverDues" prefHeight="43.0" prefWidth="194.0" styleClass="button-menu" stylesheets="@style/style.css" text="Overdues">
+               <padding>
+                  <Insets left="40.0" />
+               </padding>
+            </Button>
             <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#logout" prefHeight="43.0" prefWidth="194.0" styleClass="button-menu" stylesheets="@style/style.css" text="Logout">
                <padding>
                   <Insets left="40.0" />
@@ -103,9 +95,9 @@
                   </TableView>
                   <HBox prefHeight="18.0" prefWidth="483.0" spacing="10.0">
                      <children>
-                        <TextField fx:id="txtMemberId" prefHeight="27.0" prefWidth="159.0" promptText="Member Id" style="-fx-border-color: #353B63;" />
-                        <TextField fx:id="txtIsbn" prefHeight="27.0" prefWidth="182.0" promptText="ISBN" style="-fx-border-color: #353B63;" />
-                        <Button fx:id="btnCheckout" graphicTextGap="10.0" mnemonicParsing="false" onAction="#checkout" prefHeight="26.0" prefWidth="118.0" stylesheets="@style/style.css" text="CHECKOUT" />
+                        <TextField fx:id="txtMemberId" prefHeight="27.0" prefWidth="218.0" promptText="Member Id" style="-fx-border-color: #353B63;" />
+                        <Button graphicTextGap="10.0" mnemonicParsing="false" onAction="#search" prefHeight="26.0" prefWidth="118.0" stylesheets="@style/style.css" text="SEARCH" />
+                        <Button fx:id="btnCheckout1" graphicTextGap="10.0" mnemonicParsing="false" onAction="#print" prefHeight="26.0" prefWidth="118.0" stylesheets="@style/style.css" text="PRINT" />
                      </children>
                   </HBox>
                </children>
@@ -114,8 +106,8 @@
       </VBox>
       <Pane layoutX="186.0" layoutY="42.0" prefHeight="82.0" prefWidth="508.0" style="-fx-background-color: #7156DD;">
          <children>
-            <Label layoutX="23.0" layoutY="25.0" text="home/checkouts" textFill="WHITE" />
-            <Label layoutX="23.0" layoutY="37.0" prefHeight="35.0" prefWidth="108.0" text="Checkout" textFill="WHITE">
+            <Label layoutX="23.0" layoutY="25.0" text="home/search" textFill="WHITE" />
+            <Label layoutX="23.0" layoutY="37.0" prefHeight="35.0" prefWidth="108.0" text="Search" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font>

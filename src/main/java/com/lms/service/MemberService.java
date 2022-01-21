@@ -9,6 +9,8 @@ public interface MemberService {
 
     void addMember(LibraryMember member);
 
+    LibraryMember findById(String memberId);
+
     List<LibraryMember> search(String keyWord);
 
     HashMap<String,LibraryMember> getAll();

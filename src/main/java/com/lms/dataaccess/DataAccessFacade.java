@@ -6,11 +6,8 @@ import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.List;
 
-import com.lms.business.Book;
-import com.lms.business.BookCopy;
+import com.lms.business.*;
 import com.lms.business.CheckoutRecord;
-import com.lms.business.LibraryMember;
-import com.lms.dataaccess.DataAccessFacade.StorageType;
 
 
 public class DataAccessFacade implements DataAccess, Serializable {
@@ -51,7 +48,7 @@ public class DataAccessFacade implements DataAccess, Serializable {
 		mems.put(bookCopyId, checkoutRecord);
 		saveToStorage(StorageType.CHECKOUTS, mems);
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public  HashMap<String,Book> readBooksMap() {
 		//Returns a Map with name/value pairs being

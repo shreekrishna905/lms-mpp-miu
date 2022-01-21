@@ -28,6 +28,11 @@ public class BookServiceImpl implements BookService{
         }).collect(Collectors.toList());
     }
 
+    @Override
+    public Book searchByIsbn(String isbn) {
+        return dataAccess.readBooksMap().get(isbn);
+    }
+
     private boolean mayContainsAuthor(Book book, String keyword) {
         for (Author author:book.getAuthors()) {
             if(author.getFirstName().toLowerCase().contains(keyword))

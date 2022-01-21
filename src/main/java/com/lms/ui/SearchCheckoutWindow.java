@@ -3,37 +3,31 @@ package com.lms.ui;
 import com.lms.ApplicationStartUp;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class MemberViewWindow extends Stage implements Window {
+public class SearchCheckoutWindow extends Stage implements Window {
 
-    public static MemberViewWindow INSTANCE = new MemberViewWindow();
-
+    public static SearchCheckoutWindow INSTANCE = new SearchCheckoutWindow();
 
     FXMLLoader fxmlLoader;
 
-
-
-    public MemberViewWindow(){
+    public SearchCheckoutWindow(){
         init();
     }
 
     @Override
     public void init() {
         try{
-            fxmlLoader = new FXMLLoader(ApplicationStartUp.class.getResource("member-view.fxml"));
+            fxmlLoader = new FXMLLoader(ApplicationStartUp.class.getResource("checkout-search.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 693, 480);
-            scene.setFill(Color.TRANSPARENT);
             setScene(scene);
-            setTitle("Member View");
+            setTitle("Search");
             setResizable(false);
         } catch (IOException exception){
 
         }
     }
-
 
 }

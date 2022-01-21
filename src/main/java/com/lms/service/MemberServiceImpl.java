@@ -5,6 +5,7 @@ import com.lms.dataaccess.DataAccess;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class MemberServiceImpl implements MemberService {
@@ -18,6 +19,12 @@ public class MemberServiceImpl implements MemberService {
     @Override
     public void addMember(LibraryMember member) {
          dataAccess.saveNewMember(member);
+    }
+
+    @Override
+    public LibraryMember findById(String memberId) {
+        Map<String, LibraryMember> records = dataAccess.readMemberMap();
+        return records.get(memberId);
     }
 
     @Override

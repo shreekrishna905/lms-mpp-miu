@@ -1,6 +1,7 @@
 package com.lms.business;
 
 import java.io.Serializable;
+import java.util.stream.Stream;
 
 public enum Duration implements Serializable {
     TWENTY_ONE("21"), SEVEN("7");
@@ -12,6 +13,13 @@ public enum Duration implements Serializable {
 
     public String getValue() {
         return value;
+    }
+
+    public static Duration withDays(String days) {
+        return Stream.of(Duration.values())
+                .filter(f -> f.getValue().equals(days))
+                .findFirst()
+                .orElseThrow(IllegalArgumentException::new);
     }
 
     @Override
