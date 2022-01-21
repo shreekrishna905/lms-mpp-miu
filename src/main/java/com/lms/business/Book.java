@@ -1,5 +1,7 @@
 package com.lms.business;
 
+import com.lms.utils.EntityNotFoundException;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -44,6 +46,10 @@ public class Book implements Serializable {
         String copyNumber = String.valueOf(Math.random());
         BookCopy bookCopy = new BookCopy(copyNumber, true, this);
         this.bookCopies.add(bookCopy);
+    }
+
+    public BookCopy getAvailableBook(){
+        return this.bookCopies.stream().filter(BookCopy::isAvailable).findFirst().orElseThrow(() -> new EntityNotFoundException(String.format("No copy for book with isbn %s",this.isbn)));
     }
 
 }
