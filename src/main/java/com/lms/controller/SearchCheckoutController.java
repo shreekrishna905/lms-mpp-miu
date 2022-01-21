@@ -6,6 +6,7 @@ import com.lms.service.MemberService;
 import com.lms.service.MemberServiceImpl;
 import com.lms.ui.CheckoutWindow;
 import com.lms.ui.LoginViewWindow;
+import com.lms.ui.OverdueWindow;
 import com.lms.utils.ApplicationInfo;
 import com.lms.utils.Constants;
 import com.lms.utils.LmsDialog;
@@ -17,8 +18,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -65,6 +64,11 @@ public class SearchCheckoutController {
     @FXML
     public void showCheckout(ActionEvent event){
         ApplicationInfo.show(new CheckoutWindow());
+    }
+
+    @FXML
+    public void showOverDues(){
+        ApplicationInfo.show(new OverdueWindow());
     }
 
     @FXML

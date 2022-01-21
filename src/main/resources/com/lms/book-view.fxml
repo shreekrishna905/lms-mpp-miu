@@ -53,6 +53,21 @@
                   <Insets left="40.0" />
                </padding>
             </Button>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#showMember" prefHeight="43.0" prefWidth="187.0" styleClass="button-menu" stylesheets="@style/style.css" text="Checkout">
+               <padding>
+                  <Insets left="40.0" />
+               </padding>
+            </Button>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#showMember" prefHeight="43.0" prefWidth="187.0" styleClass="button-menu" stylesheets="@style/style.css" text="Search">
+               <padding>
+                  <Insets left="40.0" />
+               </padding>
+            </Button>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#showMember" prefHeight="43.0" prefWidth="187.0" styleClass="button-menu" stylesheets="@style/style.css" text="Overdues">
+               <padding>
+                  <Insets left="40.0" />
+               </padding>
+            </Button>
             <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#logout" prefHeight="43.0" prefWidth="221.0" styleClass="button-menu" stylesheets="@style/style.css" text="Logout">
                <padding>
                   <Insets left="40.0" />
@@ -75,7 +90,7 @@
                      <children>
                         <TextField fx:id="isbnSearchText" prefHeight="26.0" prefWidth="224.0" style="-fx-border-color: #353B63;" />
                         <Button fx:id="searchBook" graphicTextGap="10.0" mnemonicParsing="false" onAction="#searchBook" prefHeight="26.0" prefWidth="109.0" stylesheets="@style/style.css" text="SEARCH" />
-                        <Button graphicTextGap="10.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="163.0" onAction="#addBook" stylesheets="@style/style.css" text="Add Book" />
+                        <Button graphicTextGap="10.0" mnemonicParsing="false" onAction="#addBook" prefHeight="26.0" prefWidth="163.0" stylesheets="@style/style.css" text="Add Book" />
                      </children>
                   </HBox>
                   <TableView fx:id="tableBook" prefHeight="293.0" prefWidth="483.0" stylesheets="@style/style.css" GridPane.rowIndex="1">
