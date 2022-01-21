@@ -12,6 +12,12 @@
 -fx-text-fill: #371897;
 }
 
+.button-active
+{
+-fx-background-color : #7156DD;
+-fx-text-fill:  #FFF;
+}
+
 .button-menu
 {
 -fx-background-color : #3F2B63;
