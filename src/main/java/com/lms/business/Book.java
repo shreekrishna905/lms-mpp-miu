@@ -13,6 +13,7 @@ public class Book implements Serializable {
     private String title;
     private List<BookCopy> bookCopies;
     private List<Author> authors;
+    private String authorFirstNames;
 
     public Book(String isbn ,String title, Duration duration, List<Author> authors) {
         this.isbn = isbn;
@@ -48,8 +49,24 @@ public class Book implements Serializable {
         this.bookCopies.add(bookCopy);
     }
 
+    @Override
+    public String toString() {
+        return "Book{" +
+                "isbn='" + isbn + '\'' +
+                ", duration=" + duration +
+                ", title='" + title + '\'' +
+                ", bookCopies=" + bookCopies +
+                ", authors=" + authors +
+                '}';
+    }
     public BookCopy getAvailableBook(){
         return this.bookCopies.stream().filter(BookCopy::isAvailable).findFirst().orElseThrow(() -> new EntityNotFoundException(String.format("No copy for book with isbn %s",this.isbn)));
     }
 
+    public String getAuthorFirstNames() {
+        for(Author author:this.authors) {
+            authorFirstNames += author + ", ";
+        }
+        return authorFirstNames;
+    }
 }

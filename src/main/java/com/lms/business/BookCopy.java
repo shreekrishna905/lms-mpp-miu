@@ -26,13 +26,14 @@ public class BookCopy implements Serializable {
         return isAvailable;
     }
 
+    public Book getBook() {
+        return book;
+    }
+
     public void setAvailable(boolean available) {
         isAvailable = available;
     }
 
-    public Book getBook() {
-        return book;
-    }
 
     public void setBook(Book book) {
         this.book = book;

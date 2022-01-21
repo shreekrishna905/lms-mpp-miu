@@ -16,7 +16,6 @@ import com.lms.business.*;
  */
 public class TestData {
 
-
     public static void main(String[] args) {
         TestData td = new TestData();
         td.bookData();

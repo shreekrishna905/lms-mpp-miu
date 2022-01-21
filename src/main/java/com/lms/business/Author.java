@@ -33,7 +33,15 @@ public class Author implements Serializable {
     public Address getAddress() {
         return address;
     }
+    public boolean isHasCredential() {
+        return hasCredential;
+    }
 
+
+    @Override
+    public String toString() {
+        return firstName;
+    }
     public String getShortBio() {
         return shortBio;
     }
