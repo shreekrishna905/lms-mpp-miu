@@ -10,6 +10,8 @@ import java.io.IOException;
 
 public class CheckoutWindow extends Stage implements Window {
 
+    public static CheckoutWindow INSTANCE = new CheckoutWindow();
+
     public CheckoutWindow(){
         init();
     }

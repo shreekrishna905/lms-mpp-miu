@@ -12,7 +12,7 @@ public class ApplicationStartUp extends Application {
 
     @Override
     public void start(Stage stage) {
-        stage = new CheckoutWindow();
+        stage = new LoginViewWindow();
         ApplicationInfo.currentStage = stage;
         stage.show();
     }

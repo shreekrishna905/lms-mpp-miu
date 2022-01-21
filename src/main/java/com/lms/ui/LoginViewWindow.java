@@ -2,6 +2,7 @@ package com.lms.ui;
 
 import com.lms.ApplicationStartUp;
 import com.lms.dataaccess.Auth;
+import com.lms.utils.ApplicationInfo;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
@@ -31,13 +32,17 @@ public class LoginViewWindow extends Stage implements Window{
         }
     }
 
-    public void loginSuccessful(Auth currentAuth) {
+    public static void loginSuccessful(Auth currentAuth) {
         switch (currentAuth) {
             case ADMIN -> {
-                BookViewWindow.INSTANCE.init();
+                MemberViewWindow memberViewWindow = MemberViewWindow.INSTANCE;
+                memberViewWindow.init();
+                ApplicationInfo.show(memberViewWindow);
             }
             case LIBRARIAN -> {
-                MemberViewWindow.INSTANCE.init();
+                CheckoutWindow checkoutWindow = CheckoutWindow.INSTANCE;
+                checkoutWindow.init();
+                ApplicationInfo.show(checkoutWindow);
             }
             case BOTH -> AddBookWindow.INSTANCE.init();
         }
