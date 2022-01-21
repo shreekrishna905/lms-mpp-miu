@@ -30,4 +30,9 @@ public class Address implements Serializable {
     public String getZip() {
         return zip;
     }
+
+    @Override
+    public String toString() {
+        return street+","+city+","+state+","+zip;
+    }
 }

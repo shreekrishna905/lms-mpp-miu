@@ -12,7 +12,9 @@ import com.lms.business.LibraryMember;
 import com.lms.dataaccess.DataAccessFacade.StorageType;
 
 
-public class DataAccessFacade implements DataAccess {
+public class DataAccessFacade implements DataAccess, Serializable{
+
+	private static final long serialVersionUID = 5399827794066637059L;
 	
 	enum StorageType {
 		BOOKS, MEMBERS, USERS;
@@ -140,7 +142,7 @@ public class DataAccessFacade implements DataAccess {
 		public String toString() {
 			return "(" + first.toString() + ", " + second.toString() + ")";
 		}
-		private static final long serialVersionUID = 5399827794066637059L;
+
 	}
 	
 }

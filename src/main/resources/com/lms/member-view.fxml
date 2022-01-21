@@ -71,20 +71,20 @@
                 <RowConstraints maxHeight="312.6" minHeight="10.0" prefHeight="271.40000610351564" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TableView prefHeight="293.0" prefWidth="483.0" stylesheets="@style/style.css" GridPane.rowIndex="1">
+                  <TableView fx:id="membersTable" prefHeight="293.0" prefWidth="483.0" stylesheets="@style/style.css" GridPane.rowIndex="1">
                     <columns>
-                      <TableColumn prefWidth="75.0" text="MEMBER ID" />
-                      <TableColumn prefWidth="96.79998779296875" text="FIRST NAME" />
-                        <TableColumn prefWidth="96.79998779296875" text="LAST NAME" />
-                        <TableColumn prefWidth="120.0" text="PHONE NUMBER" />
-                        <TableColumn prefWidth="89.5999755859375" text="ADDRESS" />
+                      <TableColumn fx:id="memberId" prefWidth="75.0" text="MEMBER ID" />
+                      <TableColumn fx:id="firstName" prefWidth="96.79998779296875" text="FIRST NAME" />
+                        <TableColumn fx:id="lastName" prefWidth="96.79998779296875" text="LAST NAME" />
+                        <TableColumn fx:id="phoneNumber" prefWidth="120.0" text="PHONE NUMBER" />
+                        <TableColumn fx:id="address" prefWidth="89.5999755859375" text="ADDRESS" />
                     </columns>
                   </TableView>
                   <HBox prefHeight="18.0" prefWidth="483.0" spacing="10.0">
                      <children>
                         <TextField prefHeight="26.0" prefWidth="224.0" style="-fx-border-color: #353B63;" />
                         <Button graphicTextGap="10.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="109.0" stylesheets="@style/style.css" text="SEARCH" />
-                        <Button graphicTextGap="10.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="163.0" stylesheets="@style/style.css" text="Add Member" />
+                        <Button graphicTextGap="10.0" mnemonicParsing="false" onAction="#addMemberRoute" prefHeight="26.0" prefWidth="163.0" stylesheets="@style/style.css" text="Add Member" />
                      </children>
                   </HBox>
                </children>

@@ -19,14 +19,14 @@
             </Label>
          </children>
       </Pane>
-      <TextField layoutX="77.0" layoutY="79.0" prefHeight="26.0" prefWidth="264.0" promptText="Member Number" />
-      <TextField layoutX="77.0" layoutY="127.0" prefHeight="26.0" prefWidth="264.0" promptText="First Name" />
-      <TextField layoutX="77.0" layoutY="176.0" prefHeight="26.0" prefWidth="264.0" promptText="Last Name" />
-      <TextField layoutX="77.0" layoutY="224.0" prefHeight="26.0" prefWidth="264.0" promptText="Phone Number" />
-      <TextField layoutX="77.0" layoutY="274.0" prefHeight="26.0" prefWidth="264.0" promptText="Street" />
-      <TextField layoutX="77.0" layoutY="325.0" prefHeight="26.0" prefWidth="264.0" promptText="City" />
-      <TextField layoutX="77.0" layoutY="376.0" prefHeight="26.0" prefWidth="264.0" promptText="State" />
-      <TextField layoutX="77.0" layoutY="425.0" prefHeight="26.0" prefWidth="264.0" promptText="Zip" />
-      <Button layoutX="77.0" layoutY="475.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="264.0" stylesheets="@style/style.css" text="Add Member" textFill="WHITE" />
+      <TextField layoutX="77.0" layoutY="79.0" prefHeight="26.0" prefWidth="264.0" fx:id="memberId" promptText="Member Number" />
+      <TextField layoutX="77.0" layoutY="127.0" prefHeight="26.0" prefWidth="264.0" fx:id="firstName" promptText="First Name" />
+      <TextField layoutX="77.0" layoutY="176.0" prefHeight="26.0" prefWidth="264.0" fx:id="lastName" promptText="Last Name" />
+      <TextField layoutX="77.0" layoutY="224.0" prefHeight="26.0" prefWidth="264.0" fx:id="phoneNo" promptText="Phone Number" />
+      <TextField layoutX="77.0" layoutY="274.0" prefHeight="26.0" prefWidth="264.0" fx:id="street" promptText="Street" />
+      <TextField layoutX="77.0" layoutY="325.0" prefHeight="26.0" prefWidth="264.0" fx:id="city" promptText="City" />
+      <TextField layoutX="77.0" layoutY="376.0" prefHeight="26.0" prefWidth="264.0" fx:id="state" promptText="State" />
+      <TextField layoutX="77.0" layoutY="425.0" prefHeight="26.0" prefWidth="264.0" fx:id="zip" promptText="Zip" />
+      <Button layoutX="77.0" layoutY="475.0" mnemonicParsing="false" prefHeight="34.0" fx:id="addMemberBtn" onAction="#addMember" prefWidth="264.0" stylesheets="@style/style.css" text="Add Member" textFill="WHITE" />
    </children>
 </AnchorPane>

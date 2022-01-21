@@ -57,6 +57,28 @@ public class TestData {
         libraryMember = new LibraryMember("1004", "Ricardo", "Montalbahn", "641-472-2871", addresses.get(7));
         members.add(libraryMember);
 
+       libraryMember = new LibraryMember("1005", "Andy", "Rogers", "641-223-2211", addresses.get(4));
+        members.add(libraryMember);
+
+        libraryMember = new LibraryMember("1006", "Drew", "Stevens", "702-998-2414", addresses.get(5));
+        members.add(libraryMember);
+
+        libraryMember = new LibraryMember("1007", "Sarah", "Eagleton", "451-234-8811", addresses.get(6));
+        members.add(libraryMember);
+
+        libraryMember = new LibraryMember("1008", "Ricardo", "Montalbahn", "641-472-2871", addresses.get(7));
+        members.add(libraryMember);
+
+        libraryMember = new LibraryMember("1009", "Ricardo", "Montalbahn", "641-472-2871", addresses.get(7));
+        members.add(libraryMember);
+        libraryMember = new LibraryMember("1010", "Ricardo", "Montalbahn", "641-472-2871", addresses.get(7));
+        members.add(libraryMember);
+        libraryMember = new LibraryMember("1011", "Ricardo", "Montalbahn", "641-472-2871", addresses.get(7));
+        members.add(libraryMember);
+        libraryMember = new LibraryMember("1012", "Ricardo", "Montalbahn", "641-472-2871", addresses.get(7));
+        members.add(libraryMember);
+
+
         DataAccessFacade.loadMemberMap(members);
     }
 
