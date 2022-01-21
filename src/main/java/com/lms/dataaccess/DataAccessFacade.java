@@ -8,6 +8,7 @@ import java.util.List;
 
 import com.lms.business.Book;
 import com.lms.business.BookCopy;
+import com.lms.business.CheckoutRecord;
 import com.lms.business.LibraryMember;
 import com.lms.dataaccess.DataAccessFacade.StorageType;
 
@@ -15,7 +16,7 @@ import com.lms.dataaccess.DataAccessFacade.StorageType;
 public class DataAccessFacade implements DataAccess {
 	
 	enum StorageType {
-		BOOKS, MEMBERS, USERS;
+		BOOKS, MEMBERS, USERS, CHECKOUTS;
 	}
 
 	public static final String OUTPUT_DIR = System.getProperty("user.dir") + File.separator +
@@ -29,6 +30,16 @@ public class DataAccessFacade implements DataAccess {
 		String memberId = member.getMemberId();
 		mems.put(memberId, member);
 		saveToStorage(StorageType.MEMBERS, mems);	
+	}
+
+	public void saveNewCheckout(CheckoutRecord checkoutRecord){
+		HashMap<String, CheckoutRecord> mems = readCheckoutMap();
+		if(mems==null){
+			mems = new HashMap<>();
+		}
+		String bookCopyId = checkoutRecord.getBookCopy().getBookCopyNumber();
+		mems.put(bookCopyId, checkoutRecord);
+		saveToStorage(StorageType.CHECKOUTS, mems);
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -44,6 +55,13 @@ public class DataAccessFacade implements DataAccess {
 		//   memberId -> LibraryMember
 		return (HashMap<String, LibraryMember>) readFromStorage(
 				StorageType.MEMBERS);
+	}
+
+	public HashMap<String, CheckoutRecord> readCheckoutMap() {
+		//Returns a Map with name/value pairs being
+		//   memberId -> LibraryMember
+		return (HashMap<String, CheckoutRecord>) readFromStorage(
+				StorageType.CHECKOUTS);
 	}
 	
 	

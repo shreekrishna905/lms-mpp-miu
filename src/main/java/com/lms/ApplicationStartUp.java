@@ -1,5 +1,6 @@
 package com.lms;
 
+import com.lms.ui.CheckoutWindow;
 import com.lms.ui.LoginViewWindow;
 import com.lms.ui.MemberViewWindow;
 import com.lms.utils.ApplicationInfo;
@@ -11,7 +12,7 @@ public class ApplicationStartUp extends Application {
 
     @Override
     public void start(Stage stage) {
-        stage = new LoginViewWindow();
+        stage = new CheckoutWindow();
         ApplicationInfo.currentStage = stage;
         stage.show();
     }

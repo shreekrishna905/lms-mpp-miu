@@ -6,8 +6,6 @@ import com.lms.dataaccess.User;
 import com.lms.utils.Constants;
 import com.lms.utils.InvalidCredentialException;
 
-import java.util.Optional;
-
 public class LoginServiceImpl implements LoginService{
 
     private DataAccess dataAccess;
