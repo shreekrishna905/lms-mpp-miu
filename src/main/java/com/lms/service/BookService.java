@@ -7,6 +7,8 @@ import java.util.List;
 public interface BookService {
     List<Book> search(String keyWord);
 
+    Book searchByIsbn(String isbn);
+
     HashMap<String, Book> getAll();
 
     void save(Book book);
