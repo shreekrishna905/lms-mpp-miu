@@ -51,7 +51,14 @@ public class DataAccessFacade implements DataAccess, Serializable {
 		mems.put(bookCopyId, checkoutRecord);
 		saveToStorage(StorageType.CHECKOUTS, mems);
 	}
-	
+
+	@Override
+	public void updateBook(Book book) {
+		HashMap<String, Book> mems = readBooksMap();
+		mems.put(book.getIsbn(), book);
+		saveToStorage(StorageType.BOOKS, mems);
+	}
+
 	@SuppressWarnings("unchecked")
 	public  HashMap<String,Book> readBooksMap() {
 		//Returns a Map with name/value pairs being
