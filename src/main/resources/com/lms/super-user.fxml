@@ -3,21 +3,14 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="693.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lms.controller.MemberViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="693.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lms.controller.SuperAdminController">
    <children>
       <VBox layoutY="-1.0" prefHeight="486.0" prefWidth="186.0" style="-fx-background-color: #3f2863;">
          <children>
@@ -35,65 +28,38 @@
                   </ImageView>
                </children>
             </Pane>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="190.0" styleClass="button-active" stylesheets="@style/style.css" text="Member">
+            <Button fx:id="btnMember" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#showMemberWindow" prefHeight="43.0" prefWidth="190.0" styleClass="button-menu" stylesheets="@style/style.css" text="Member">
                <padding>
                   <Insets left="40.0" />
                </padding>
             </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="" prefHeight="43.0" prefWidth="189.0" styleClass="button-menu" stylesheets="@style/style.css" text="Book">
+            <Button fx:id="btnBook" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#showBookWindow" prefHeight="43.0" prefWidth="189.0" styleClass="button-menu" stylesheets="@style/style.css" text="Book">
                <padding>
                   <Insets left="40.0" />
                </padding>
             </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="189.0" styleClass="button-menu" stylesheets="@style/style.css" text="Checkout">
+            <Button fx:id="btnCheckout" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#showCheckoutWindow" prefHeight="43.0" prefWidth="189.0" styleClass="button-menu" stylesheets="@style/style.css" text="Checkout">
                <padding>
                   <Insets left="40.0" />
                </padding>
             </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="194.0" styleClass="button-menu" stylesheets="@style/style.css" text="Logout">
+            <Button fx:id="btnLogout" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#logout" prefHeight="43.0" prefWidth="194.0" styleClass="button-menu" stylesheets="@style/style.css" text="Logout">
                <padding>
                   <Insets left="40.0" />
                </padding>
             </Button>
          </children>
       </VBox>
-      <VBox layoutX="198.0" layoutY="141.0" prefHeight="338.0" prefWidth="483.0">
+      <ImageView fitHeight="357.0" fitWidth="390.0" layoutX="301.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icon/library.png" />
+         </image>
+      </ImageView>
+      <Pane layoutX="186.0" layoutY="31.0" prefHeight="62.0" prefWidth="508.0" style="-fx-background-color: #7156DD;">
          <children>
-            <GridPane prefHeight="317.0" prefWidth="483.0">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints maxHeight="100.00000610351563" minHeight="0.0" prefHeight="30.599993896484378" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="312.6" minHeight="10.0" prefHeight="271.40000610351564" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <TableView prefHeight="293.0" prefWidth="483.0" stylesheets="@style/style.css" GridPane.rowIndex="1">
-                    <columns>
-                      <TableColumn prefWidth="75.0" text="MEMBER ID" />
-                      <TableColumn prefWidth="96.79998779296875" text="FIRST NAME" />
-                        <TableColumn prefWidth="96.79998779296875" text="LAST NAME" />
-                        <TableColumn prefWidth="120.0" text="PHONE NUMBER" />
-                        <TableColumn prefWidth="89.5999755859375" text="ADDRESS" />
-                    </columns>
-                  </TableView>
-                  <HBox prefHeight="18.0" prefWidth="483.0" spacing="10.0">
-                     <children>
-                        <TextField prefHeight="26.0" prefWidth="224.0" style="-fx-border-color: #353B63;" />
-                        <Button graphicTextGap="10.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="109.0" stylesheets="@style/style.css" text="SEARCH" />
-                        <Button graphicTextGap="10.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="163.0" stylesheets="@style/style.css" text="Add Member" />
-                     </children>
-                  </HBox>
-               </children>
-            </GridPane>
-         </children>
-      </VBox>
-      <Pane layoutX="186.0" layoutY="42.0" prefHeight="82.0" prefWidth="508.0" style="-fx-background-color: #7156DD;">
-         <children>
-            <Label layoutX="23.0" layoutY="25.0" text="home/members" textFill="WHITE" />
-            <Label layoutX="22.0" layoutY="37.0" prefHeight="35.0" prefWidth="108.0" text="Member" textFill="WHITE">
+            <Label layoutX="134.0" layoutY="13.0" prefHeight="36.0" prefWidth="243.0" text="Super Admin Panel" textFill="WHITE">
                <font>
-                  <Font size="20.0" />
+                  <Font size="25.0" />
                </font>
             </Label>
          </children>

@@ -70,6 +70,7 @@ public class CheckoutController {
 
         public RowData(String memberId, String isbn, String checkoutDate,String dueDate){
             this.isbn = isbn;
+            this.memberId = memberId;
             this.checkoutDate = checkoutDate;
             this.dueDate = dueDate;
         }
