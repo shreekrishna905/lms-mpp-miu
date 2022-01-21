@@ -13,4 +13,28 @@ public class BookCopy implements Serializable {
         this.isAvailable = isAvailable;
         this.book = book;
     }
+
+    public String getBookCopyNumber() {
+        return bookCopyNumber;
+    }
+
+    public void setBookCopyNumber(String bookCopyNumber) {
+        this.bookCopyNumber = bookCopyNumber;
+    }
+
+    public boolean isAvailable() {
+        return isAvailable;
+    }
+
+    public void setAvailable(boolean available) {
+        isAvailable = available;
+    }
+
+    public Book getBook() {
+        return book;
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
+    }
 }

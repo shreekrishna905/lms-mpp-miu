@@ -6,7 +6,7 @@ import com.lms.dataaccess.User;
 import com.lms.utils.Constants;
 import com.lms.utils.InvalidCredentialException;
 
-import java.util.Optional;
+import java.util.Map;
 
 public class LoginServiceImpl implements LoginService{
 
@@ -18,7 +18,8 @@ public class LoginServiceImpl implements LoginService{
 
     @Override
     public Auth login(String username, String password) {
-        User loginUser = dataAccess.readUserMap().entrySet().stream()
+        Map<String,User> users = dataAccess.readUserMap();
+        User loginUser = users.entrySet().stream()
                 .map(entry -> entry.getValue())
                 .filter(user -> user.getId().equals(username) && user.getPassword().equals(password))
                 .findAny().orElseThrow(() -> new InvalidCredentialException(Constants.LOGIN_INVALID_INFO));

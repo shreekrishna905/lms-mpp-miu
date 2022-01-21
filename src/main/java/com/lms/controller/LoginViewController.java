@@ -1,8 +1,10 @@
 package com.lms.controller;
 
+import com.lms.dataaccess.Auth;
 import com.lms.dataaccess.DataAccessFacade;
 import com.lms.service.LoginService;
 import com.lms.service.LoginServiceImpl;
+import com.lms.ui.LoginViewWindow;
 import com.lms.ui.MemberViewWindow;
 import com.lms.utils.ApplicationInfo;
 import com.lms.utils.Constants;
@@ -37,7 +39,7 @@ public class LoginViewController {
             LmsDialog.infoBox(Alert.AlertType.ERROR,Constants.ERROR_TITLE,ex.getMessage());
             return;
         }
-        ApplicationInfo.show(new MemberViewWindow());
+        LoginViewWindow.loginSuccessful(ApplicationInfo.currentAuth);
     }
 
 }

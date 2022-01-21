@@ -1,5 +1,6 @@
 package com.lms;
 
+import com.lms.ui.CheckoutWindow;
 import com.lms.ui.LoginViewWindow;
 import com.lms.ui.MemberViewWindow;
 import com.lms.utils.ApplicationInfo;
