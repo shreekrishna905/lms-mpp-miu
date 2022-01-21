@@ -5,6 +5,7 @@ import com.lms.dataaccess.DataAccessFacade;
 import com.lms.exception.InvalidMemberException;
 import com.lms.service.BookService;
 import com.lms.service.BookServiceImpl;
+import com.lms.ui.AddBookWindow;
 import com.lms.ui.BookViewWindow;
 import com.lms.ui.LoginViewWindow;
 import com.lms.ui.MemberViewWindow;
@@ -88,6 +89,11 @@ public class BookViewController implements Initializable {
     public void logout(ActionEvent event){
         ApplicationInfo.currentAuth = null;
         ApplicationInfo.show(new LoginViewWindow());
+    }
+
+    @FXML
+    public void addBook(){
+        ApplicationInfo.show(new AddBookWindow());
     }
 
     @FXML
