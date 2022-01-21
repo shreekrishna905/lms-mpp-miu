@@ -12,7 +12,7 @@ import com.lms.business.LibraryMember;
 import com.lms.dataaccess.DataAccessFacade.StorageType;
 
 
-public class DataAccessFacade implements DataAccess {
+public class DataAccessFacade implements DataAccess, Serializable {
 	
 	enum StorageType {
 		BOOKS, MEMBERS, USERS;

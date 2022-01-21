@@ -71,21 +71,19 @@
                 <RowConstraints maxHeight="312.6" minHeight="10.0" prefHeight="271.40000610351564" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TableView prefHeight="293.0" prefWidth="483.0" stylesheets="@style/style.css" GridPane.rowIndex="1">
-                    <columns>
-                      <TableColumn prefWidth="104.00001525878906" text="TITLE" />
-                      <TableColumn prefWidth="96.0" text="ISBN" />
-                        <TableColumn prefWidth="132.800048828125" text="DURATION" />
-                        <TableColumn prefWidth="142.39996337890625" text="AUTHORS" />
-                    </columns>
-                  </TableView>
                   <HBox prefHeight="18.0" prefWidth="483.0" spacing="10.0">
                      <children>
-                        <TextField prefHeight="26.0" prefWidth="224.0" style="-fx-border-color: #353B63;" />
-                        <Button graphicTextGap="10.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="109.0" stylesheets="@style/style.css" text="SEARCH" />
+                        <TextField fx:id="isbnSearchText" prefHeight="26.0" prefWidth="224.0" style="-fx-border-color: #353B63;" />
+                        <Button fx:id="searchBook" graphicTextGap="10.0" mnemonicParsing="false" onAction="#searchBook" prefHeight="26.0" prefWidth="109.0" stylesheets="@style/style.css" text="SEARCH" />
                         <Button graphicTextGap="10.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="163.0" stylesheets="@style/style.css" text="Add Book" />
                      </children>
                   </HBox>
+                  <TableView fx:id="tableBook" prefHeight="293.0" prefWidth="483.0" stylesheets="@style/style.css" GridPane.rowIndex="1">
+                    <columns>
+                      <TableColumn fx:id="title" prefWidth="104.00001525878906" text="TITLE" />
+                      <TableColumn fx:id="isbn" prefWidth="96.0" text="ISBN" />
+                    </columns>
+                  </TableView>
                </children>
             </GridPane>
          </children>

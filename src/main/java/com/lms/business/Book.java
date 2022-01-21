@@ -46,4 +46,14 @@ public class Book implements Serializable {
         this.bookCopies.add(bookCopy);
     }
 
+    @Override
+    public String toString() {
+        return "Book{" +
+                "isbn='" + isbn + '\'' +
+                ", duration=" + duration +
+                ", title='" + title + '\'' +
+                ", bookCopies=" + bookCopies +
+                ", authors=" + authors +
+                '}';
+    }
 }
