@@ -39,6 +39,7 @@ public class Book implements Serializable {
         return bookCopies;
     }
 
+
     public List<Author> getAuthors() {
         return authors;
     }
@@ -61,6 +62,10 @@ public class Book implements Serializable {
     }
     public BookCopy getAvailableBook(){
         return this.bookCopies.stream().filter(BookCopy::isAvailable).findFirst().orElseThrow(() -> new EntityNotFoundException(String.format("No copy for book with isbn %s",this.isbn)));
+    }
+
+    public int getNoOfAvailableCopies() {
+        return this.bookCopies.size();
     }
 
     public String getAuthorFirstNames() {

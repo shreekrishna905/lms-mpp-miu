@@ -67,6 +67,7 @@ public class AddMemberController {
             memberService.addMember(member);
             LmsDialog.infoBox(Alert.AlertType.CONFIRMATION, Constants.CONFIRM_SUCCESS, Constants.CONFIRM_SUCCESS_MESSAGE);
             ApplicationInfo.show(new MemberViewWindow());
+            ApplicationInfo.closeStage(event);
         } catch (InvalidMemberException e) {
             LmsDialog.infoBox(Alert.AlertType.WARNING, Constants.ERROR_TITLE, e.getMessage());
             return;

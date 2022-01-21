@@ -2,6 +2,7 @@ package com.lms.controller;
 
 import com.lms.business.Address;
 import com.lms.business.Author;
+import com.lms.utils.ApplicationInfo;
 import com.lms.utils.Constants;
 import com.lms.utils.LmsDialog;
 import javafx.collections.ObservableList;
@@ -54,18 +55,13 @@ public class AddAuthorController {
         }
         Author author = new Author(firstName,lastName,phoneNumber,address,shortBio);
         authors.add(author);
-        closeStage(event);
+        ApplicationInfo.closeStage(event);
     }
 
     public void setAuthors(ObservableList<Author> authors) {
         this.authors = authors;
     }
 
-    private void closeStage(ActionEvent event) {
-        Node source = (Node)  event.getSource();
-        Stage stage  = (Stage) source.getScene().getWindow();
-        stage.close();
-    }
 
     private boolean isEmptyAddress(Address address){
         if(address.getCity().isEmpty() || address.getState().isEmpty() || address.getStreet().isEmpty() || address.getZip().isEmpty()){

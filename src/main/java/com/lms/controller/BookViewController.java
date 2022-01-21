@@ -1,19 +1,18 @@
 package com.lms.controller;
 
-import com.lms.business.Author;
 import com.lms.business.Book;
-import com.lms.business.Duration;
-import com.lms.business.LibraryMember;
 import com.lms.dataaccess.DataAccessFacade;
 import com.lms.exception.InvalidMemberException;
 import com.lms.service.BookService;
 import com.lms.service.BookServiceImpl;
-import com.lms.service.MemberService;
-import com.lms.service.MemberServiceImpl;
+import com.lms.ui.AddBookWindow;
+import com.lms.ui.BookViewWindow;
+import com.lms.ui.LoginViewWindow;
+import com.lms.ui.MemberViewWindow;
+import com.lms.utils.ApplicationInfo;
 import com.lms.utils.Constants;
 import com.lms.utils.LmsDialog;
 import com.lms.utils.Validator;
-import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -21,10 +20,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.text.Text;
+import javafx.scene.input.MouseButton;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
@@ -47,10 +45,17 @@ public class BookViewController implements Initializable {
     private TableColumn duration;
 
     @FXML
+    private TableColumn noOfAvailableCopies;
+
+
+    @FXML
     private TextField isbnSearchText;
 
     @FXML
     private Button searchBook;
+
+    @FXML
+    private Button addCopy;
 
     @FXML
     private TableView tableBook;
@@ -59,9 +64,10 @@ public class BookViewController implements Initializable {
     @FXML
     private TableColumn title;
 
+    private Book selectedBook;
+
     @FXML
     public void searchBook(ActionEvent event) {
-        System.out.println("check");
         dataAccessFacade = new DataAccessFacade();
         String isbn = isbnSearchText.getText().trim();
         if (!isbn.isBlank()) {
@@ -79,27 +85,58 @@ public class BookViewController implements Initializable {
         }
     }
 
+    @FXML
+    public void addCopy(ActionEvent event) {
+        selectedBook.addCopy();
+        List<Book> books = bookObservableList.stream().filter(book -> !book.getIsbn().equals(selectedBook.getIsbn())).collect(Collectors.toList());
+        books.add(selectedBook);
+        bookObservableList.removeAll();
+        tableBook.getItems().clear();
+        bookObservableList.addAll(books);
+        bookService.save(selectedBook);
+    }
 
     public void loadBooksInTable() {
         bookObservableList.forEach(book -> {
-//            System.out.println(book);
-//            StringBuilder s = new StringBuilder();
-//            for(Author author : book.getAuthors()) {
-//                s.append(author.getFirstName() + " ");
-//            }
-
             isbn.setCellValueFactory(new PropertyValueFactory<>("isbn"));
             title.setCellValueFactory(new PropertyValueFactory<>("title"));
             authorFirstNames.setCellValueFactory(new PropertyValueFactory<>("authors"));
             duration.setCellValueFactory(new PropertyValueFactory<>("duration"));
-
+            noOfAvailableCopies.setCellValueFactory(new PropertyValueFactory<>("noOfAvailableCopies"));
         });
         tableBook.setItems(bookObservableList);
     }
+
+    @FXML
+    public void logout(ActionEvent event){
+        ApplicationInfo.currentAuth = null;
+        ApplicationInfo.show(new LoginViewWindow());
+    }
+
+    @FXML
+    public void addBook(){
+        ApplicationInfo.show(new AddBookWindow());
+    }
+
+    @FXML
+    public void showMember(ActionEvent event){
+        ApplicationInfo.show(new MemberViewWindow());
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadBooksInTable();
+        tableBook.setRowFactory(yourTable -> {
+            TableRow<Book> row = new TableRow<Book>();
+            row.setOnMouseClicked(me -> {
+                addCopy.setDisable(false);
+                selectedBook = row.getItem();
+            });
+
+            return row;
+        });
     }
+
 
 
 }
