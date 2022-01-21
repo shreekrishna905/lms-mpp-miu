@@ -44,7 +44,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="190.0" styleClass="button-menu" stylesheets="@style/style.css" text="Checkout">
+            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="190.0" style="-fx-background-color: #7156DD;" styleClass="button-menu" stylesheets="@style/style.css" text="Checkout">
                <padding>
                   <Insets left="40.0" />
                </padding>

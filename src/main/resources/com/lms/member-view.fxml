@@ -43,12 +43,12 @@
                   </ImageView>
                </children>
             </Pane>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="190.0" styleClass="button-menu" stylesheets="@style/style.css" text="Member">
+            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="190.0" style="-fx-background-color: #7156DD;" styleClass="button-menu" stylesheets="@style/style.css" text="Member">
                <padding>
                   <Insets left="40.0" />
                </padding>
             </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="189.0" styleClass="button-menu" stylesheets="@style/style.css" text="Book">
+            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#showBook" prefHeight="43.0" prefWidth="189.0" styleClass="button-menu" stylesheets="@style/style.css" text="Book">
                <padding>
                   <Insets left="40.0" />
                </padding>

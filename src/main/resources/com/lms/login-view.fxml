@@ -50,7 +50,7 @@
                   <Pane prefHeight="200.0" prefWidth="200.0">
                      <children>
                         <TextField fx:id="txtUserName" layoutX="56.0" layoutY="115.0" prefHeight="35.0" prefWidth="245.0" promptText="Username" />
-                        <PasswordField fx:id="txtPassword" layoutX="57.0" layoutY="183.0" prefHeight="35.0" prefWidth="245.0" promptText="Password" />
+                        <PasswordField fx:id="txtPassword" layoutX="57.0" layoutY="183.0" onAction="#login" prefHeight="35.0" prefWidth="245.0" promptText="Password" />
                         <Button fx:id="btnLogin" layoutX="179.0" layoutY="246.0" mnemonicParsing="false" onAction="#login" prefHeight="35.0" prefWidth="120.0" stylesheets="@style/style.css" text="Login" />
                         <Label layoutX="56.0" layoutY="54.0" prefHeight="26.0" prefWidth="57.0" style="-fx-background-color: #ffffff;" text="Login">
                            <font>
