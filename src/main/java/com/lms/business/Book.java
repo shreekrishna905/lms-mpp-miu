@@ -1,5 +1,7 @@
 package com.lms.business;
 
+import com.lms.exception.EntityNotFoundException;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -11,6 +13,7 @@ public class Book implements Serializable {
     private String title;
     private List<BookCopy> bookCopies;
     private List<Author> authors;
+    private String authorFirstNames;
 
     public Book(String isbn ,String title, Duration duration, List<Author> authors) {
         this.isbn = isbn;
@@ -55,5 +58,15 @@ public class Book implements Serializable {
                 ", bookCopies=" + bookCopies +
                 ", authors=" + authors +
                 '}';
+    }
+    public BookCopy getAvailableBook(){
+        return this.bookCopies.stream().filter(BookCopy::isAvailable).findFirst().orElseThrow(() -> new EntityNotFoundException(String.format("No copy for book with isbn %s",this.isbn)));
+    }
+
+    public String getAuthorFirstNames() {
+        for(Author author:this.authors) {
+            authorFirstNames += author + ", ";
+        }
+        return authorFirstNames;
     }
 }

@@ -18,11 +18,24 @@ public class BookCopy implements Serializable {
         return bookCopyNumber;
     }
 
+    public void setBookCopyNumber(String bookCopyNumber) {
+        this.bookCopyNumber = bookCopyNumber;
+    }
+
     public boolean isAvailable() {
         return isAvailable;
     }
 
     public Book getBook() {
         return book;
+    }
+
+    public void setAvailable(boolean available) {
+        isAvailable = available;
+    }
+
+
+    public void setBook(Book book) {
+        this.book = book;
     }
 }

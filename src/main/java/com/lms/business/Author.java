@@ -41,4 +41,9 @@ public class Author implements Serializable {
     public String getShortBio() {
         return shortBio;
     }
+
+    @Override
+    public String toString() {
+        return firstName;
+    }
 }

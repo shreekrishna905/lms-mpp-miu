@@ -3,16 +3,15 @@ package com.lms.controller;
 import com.lms.dataaccess.DataAccessFacade;
 import com.lms.service.LoginService;
 import com.lms.service.LoginServiceImpl;
-import com.lms.ui.MemberViewWindow;
+import com.lms.ui.LoginViewWindow;
 import com.lms.utils.ApplicationInfo;
 import com.lms.utils.Constants;
-import com.lms.utils.InvalidCredentialException;
+import com.lms.exception.InvalidCredentialException;
 import com.lms.utils.LmsDialog;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
 public class LoginViewController {
 
@@ -37,7 +36,7 @@ public class LoginViewController {
             LmsDialog.infoBox(Alert.AlertType.ERROR,Constants.ERROR_TITLE,ex.getMessage());
             return;
         }
-        ApplicationInfo.show(new MemberViewWindow());
+        LoginViewWindow.loginSuccessful(ApplicationInfo.currentAuth);
     }
 
 }

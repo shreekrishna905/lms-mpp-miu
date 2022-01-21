@@ -80,8 +80,10 @@
                   </HBox>
                   <TableView fx:id="tableBook" prefHeight="293.0" prefWidth="483.0" stylesheets="@style/style.css" GridPane.rowIndex="1">
                     <columns>
-                      <TableColumn fx:id="title" prefWidth="104.00001525878906" text="TITLE" />
-                      <TableColumn fx:id="isbn" prefWidth="96.0" text="ISBN" />
+                      <TableColumn fx:id="title" prefWidth="112.80006408691406" text="TITLE" />
+                      <TableColumn fx:id="isbn" text="ISBN" />
+                        <TableColumn fx:id="duration" prefWidth="95.20001220703125" text="DURATION" />
+                        <TableColumn fx:id="authorFirstNames" prefWidth="196.00006103515625" text="AUTHORS" />
                     </columns>
                   </TableView>
                </children>

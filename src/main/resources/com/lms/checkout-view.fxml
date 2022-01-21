@@ -6,6 +6,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -18,7 +19,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="693.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lms.controller.MemberViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="693.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lms.controller.CheckoutController">
    <children>
       <VBox layoutY="-1.0" prefHeight="486.0" prefWidth="186.0" style="-fx-background-color: #3f2863;">
          <children>
@@ -43,12 +44,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="190.0" styleClass="button-menu" stylesheets="@style/style.css" text="Member">
-               <padding>
-                  <Insets left="40.0" />
-               </padding>
-            </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="189.0" styleClass="button-menu" stylesheets="@style/style.css" text="Book">
+            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="190.0" styleClass="button-menu" stylesheets="@style/style.css" text="Checkout">
                <padding>
                   <Insets left="40.0" />
                </padding>
@@ -71,20 +67,25 @@
                 <RowConstraints maxHeight="312.6" minHeight="10.0" prefHeight="271.40000610351564" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TableView fx:id="membersTable" prefHeight="293.0" prefWidth="483.0" stylesheets="@style/style.css" GridPane.rowIndex="1">
+                  <TableView fx:id="tblCheckout" prefHeight="293.0" prefWidth="483.0" stylesheets="@style/style.css" GridPane.rowIndex="1">
                     <columns>
-                      <TableColumn fx:id="memberId" prefWidth="75.0" text="MEMBER ID" />
-                      <TableColumn fx:id="firstName" prefWidth="96.79998779296875" text="FIRST NAME" />
-                        <TableColumn fx:id="lastName" prefWidth="96.79998779296875" text="LAST NAME" />
-                        <TableColumn fx:id="phoneNumber" prefWidth="120.0" text="PHONE NUMBER" />
-                        <TableColumn fx:id="address" prefWidth="89.5999755859375" text="ADDRESS" />
+                      <TableColumn prefWidth="124.80006408691406" text="ISBN">
+                         <cellValueFactory><PropertyValueFactory property="isbn" /></cellValueFactory>
+                      </TableColumn>
+                      <TableColumn prefWidth="144.79998779296875" text="CHECKOUT DATE">
+                         <cellValueFactory><PropertyValueFactory property="checkoutDate" /></cellValueFactory>
+                      </TableColumn>
+                        <TableColumn prefWidth="212.800048828125" text="DUE DATE">
+                           <cellValueFactory><PropertyValueFactory property="dueDate" /></cellValueFactory>
+                        </TableColumn>
                     </columns>
                   </TableView>
                   <HBox prefHeight="18.0" prefWidth="483.0" spacing="10.0">
                      <children>
-                        <TextField prefHeight="26.0" prefWidth="224.0" fx:id="searchTextField" style="-fx-border-color: #353B63;" />
-                        <Button graphicTextGap="10.0" mnemonicParsing="false" onAction="#searchMember" prefHeight="26.0" prefWidth="109.0" stylesheets="@style/style.css" text="SEARCH" />
-                        <Button graphicTextGap="10.0" mnemonicParsing="false" onAction="#addMemberRoute" prefHeight="26.0" prefWidth="163.0" stylesheets="@style/style.css" text="Add Member" />
+                        <TextField fx:id="txtMemberId" prefHeight="27.0" prefWidth="159.0" promptText="Member Id" style="-fx-border-color: #353B63;" />
+                        <TextField fx:id="txtIsbn" prefHeight="27.0" prefWidth="120.0" promptText="ISBN" style="-fx-border-color: #353B63;" />
+                        <Button fx:id="btnCheckout" graphicTextGap="10.0" mnemonicParsing="false" onAction="#checkout" prefHeight="26.0" prefWidth="94.0" stylesheets="@style/style.css" text="CHECKOUT" />
+                        <Button fx:id="btnPrint" graphicTextGap="10.0" mnemonicParsing="false" onAction="#print" prefHeight="26.0" prefWidth="94.0" stylesheets="@style/style.css" text="PRINT" />
                      </children>
                   </HBox>
                </children>
@@ -93,8 +94,8 @@
       </VBox>
       <Pane layoutX="186.0" layoutY="42.0" prefHeight="82.0" prefWidth="508.0" style="-fx-background-color: #7156DD;">
          <children>
-            <Label layoutX="23.0" layoutY="25.0" text="home/members" textFill="WHITE" />
-            <Label layoutX="22.0" layoutY="37.0" prefHeight="35.0" prefWidth="108.0" text="Member" textFill="WHITE">
+            <Label layoutX="23.0" layoutY="25.0" text="home/checkouts" textFill="WHITE" />
+            <Label layoutX="23.0" layoutY="37.0" prefHeight="35.0" prefWidth="108.0" text="Checkout" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font>
