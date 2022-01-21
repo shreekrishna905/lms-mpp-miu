@@ -8,6 +8,7 @@ import com.lms.dataaccess.DataAccess;
 import com.lms.exception.EntityNotFoundException;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Map;
 
 public class CheckoutServiceImpl implements CheckoutService{
@@ -28,11 +29,17 @@ public class CheckoutServiceImpl implements CheckoutService{
         if(!bookMaps.containsKey(isbn)){
             throw new EntityNotFoundException(String.format("Book with isbn:%s not found",isbn));
         }
-        BookCopy copy = bookMaps.get(isbn).getAvailableBook();
+        Book book = bookMaps.get(isbn);
+        BookCopy copy = book.getAvailableBook();
         LibraryMember libraryMember = memberMaps.get(memberId);
         int dueDate = Integer.parseInt(copy.getBook().getDuration().getValue());
+        copy.setAvailable(false);
         CheckoutRecord checkoutRecord = new CheckoutRecord(LocalDateTime.now(),LocalDateTime.now().plusDays(dueDate),copy,libraryMember);
+        List<BookCopy> copies = book.getBookCopies();
+        copies.remove(copy);
+        book.getBookCopies().add(copy);
         dataAccess.saveNewCheckout(checkoutRecord);
+        dataAccess.updateBook(book);
         return checkoutRecord;
     }
 }

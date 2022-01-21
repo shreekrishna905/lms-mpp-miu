@@ -1,6 +1,7 @@
 package com.lms.business;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class BookCopy implements Serializable {
     private String bookCopyNumber;
@@ -34,6 +35,18 @@ public class BookCopy implements Serializable {
         isAvailable = available;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BookCopy bookCopy = (BookCopy) o;
+        return isAvailable == bookCopy.isAvailable && Objects.equals(bookCopyNumber, bookCopy.bookCopyNumber);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(bookCopyNumber, isAvailable);
+    }
 
     public void setBook(Book book) {
         this.book = book;
