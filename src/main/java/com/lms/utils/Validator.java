@@ -26,4 +26,9 @@ public class Validator {
 
         if(member.getAddress().getStreet().isEmpty()) throw new InvalidMemberException("Street is empty");
     }
+
+    public static void validateSearchKeyWord(String keyWord) throws InvalidMemberException{
+
+        if(keyWord.isEmpty()) throw new InvalidMemberException("Invalid Search keyword");
+    }
 }

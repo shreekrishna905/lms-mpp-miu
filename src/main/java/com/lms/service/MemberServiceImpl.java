@@ -4,6 +4,8 @@ import com.lms.business.LibraryMember;
 import com.lms.dataaccess.DataAccess;
 
 import java.util.HashMap;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class MemberServiceImpl implements MemberService {
 
@@ -16,6 +18,18 @@ public class MemberServiceImpl implements MemberService {
     @Override
     public void addMember(LibraryMember member) {
          dataAccess.saveNewMember(member);
+    }
+
+    @Override
+    public List<LibraryMember> search(String keyWord) {
+        return getAll().values().stream().filter(mem -> {
+            return ( mem.getFirstName().toLowerCase().contains(keyWord)
+                    || mem.getLastName().toLowerCase().contains(keyWord)
+                    || mem.getPhoneNumber().toLowerCase().contains(keyWord)
+                    || mem.getAddress().toString().toLowerCase().contains(keyWord)
+                    || mem.getMemberId().contains(keyWord)
+            );
+        }).collect(Collectors.toList());
     }
 
     @Override
