@@ -17,4 +17,24 @@ public class Author implements Serializable {
         this.address = address;
         this.shortBio = shortBio;
     }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public String getShortBio() {
+        return shortBio;
+    }
 }
