@@ -63,7 +63,7 @@ public class AddBookController implements Initializable {
             LmsDialog.infoBox(Alert.AlertType.ERROR, Constants.ERROR_TITLE,Constants.BOOK_EMPTY_INFO);
             return;
         }
-        Book book = new Book(txtIsbn.getText().trim(),txtTitle.getText().trim(), Duration.valueOf(cbDuration.getValue().toString()),authors.stream().collect(Collectors.toList()));
+        Book book = new Book(txtIsbn.getText().trim(),txtTitle.getText().trim(), Duration.withDays(cbDuration.getValue().toString()),authors.stream().collect(Collectors.toList()));
         IntStream.rangeClosed(1,Integer.valueOf(txtNumberOfCopy.getText().trim())).forEach(
                 i -> book.addCopy());
         bookService.save(book);
