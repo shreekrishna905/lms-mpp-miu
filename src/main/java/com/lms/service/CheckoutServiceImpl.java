@@ -38,8 +38,10 @@ public class CheckoutServiceImpl implements CheckoutService{
         List<BookCopy> copies = book.getBookCopies();
         copies.remove(copy);
         book.getBookCopies().add(copy);
+        libraryMember.addCheckoutRecord(checkoutRecord);
         dataAccess.saveNewCheckout(checkoutRecord);
-        dataAccess.updateBook(book);
+        dataAccess.saveNewBook(book);
+        dataAccess.saveNewMember(libraryMember);
         return checkoutRecord;
     }
 }

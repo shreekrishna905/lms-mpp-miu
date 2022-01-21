@@ -6,7 +6,6 @@ import com.lms.dataaccess.DataAccessFacade;
 import com.lms.exception.InvalidMemberException;
 import com.lms.service.MemberService;
 import com.lms.service.MemberServiceImpl;
-import com.lms.ui.BookViewWindow;
 import com.lms.ui.MemberViewWindow;
 import com.lms.utils.ApplicationInfo;
 import com.lms.utils.Constants;
@@ -17,12 +16,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
-
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
 
 public class AddMemberController {
 

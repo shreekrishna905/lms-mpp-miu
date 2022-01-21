@@ -1,14 +1,16 @@
 package com.lms.business;
 
 import java.io.Serializable;
-import java.util.Objects;
+import java.util.ArrayList;
+import java.util.List;
 
-public class LibraryMember implements Serializable{
+public class LibraryMember implements Serializable {
     private String memberId;
-    private  String firstName;
-    private  String lastName;
-    private  String phoneNumber;
-    private  Address address;
+    private String firstName;
+    private String lastName;
+    private String phoneNumber;
+    private Address address;
+    private List<CheckoutRecord> checkoutRecords;
 
     public LibraryMember(String memberId, String firstName, String lastName, String phoneNumber, Address address) {
         this.memberId = memberId;
@@ -16,6 +18,11 @@ public class LibraryMember implements Serializable{
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
         this.address = address;
+        this.checkoutRecords = new ArrayList<>();
+    }
+
+    public void addCheckoutRecord(CheckoutRecord checkoutRecord){
+        this.checkoutRecords.add(checkoutRecord);
     }
 
     public String getMemberId() {
@@ -58,6 +65,10 @@ public class LibraryMember implements Serializable{
         this.address = address;
     }
 
+    public List<CheckoutRecord> getCheckoutRecords() {
+        return checkoutRecords;
+    }
+
     @Override
     public String toString() {
         return "LibraryMember{" +
@@ -68,5 +79,5 @@ public class LibraryMember implements Serializable{
                 ", address=" + address +
                 '}';
     }
-
 }
+
