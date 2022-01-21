@@ -4,7 +4,7 @@ import com.lms.dataaccess.Auth;
 import com.lms.dataaccess.DataAccess;
 import com.lms.dataaccess.User;
 import com.lms.utils.Constants;
-import com.lms.utils.InvalidCredentialException;
+import com.lms.exception.InvalidCredentialException;
 
 import java.util.Map;
 

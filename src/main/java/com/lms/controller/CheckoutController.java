@@ -2,6 +2,7 @@ package com.lms.controller;
 
 import com.lms.business.CheckoutRecord;
 import com.lms.dataaccess.DataAccessFacade;
+import com.lms.exception.EntityNotFoundException;
 import com.lms.service.CheckoutService;
 import com.lms.service.CheckoutServiceImpl;
 import com.lms.utils.*;
