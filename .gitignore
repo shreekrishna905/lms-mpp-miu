@@ -2,7 +2,6 @@ HELP.md
 target/
 .mvn
 src/main/java/com/lms/dataaccess/storage/
-!**/src/main/**
 !**/src/test/**
 
 ### STS ###
