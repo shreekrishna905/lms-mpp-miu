@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="508.0" prefWidth="742.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lms.controller.AddAuthorController">
+   <children>
+      <Pane prefHeight="54.0" prefWidth="742.0" style="-fx-background-color: #3f2863;">
+         <children>
+            <Label layoutX="322.0" layoutY="14.0" prefHeight="27.0" prefWidth="98.0" text="Add Author" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <TextField fx:id="txtFirstName" layoutX="51.0" layoutY="98.0" prefHeight="26.0" prefWidth="179.0" promptText="First Name" />
+      <TextField fx:id="txtLastName" layoutX="281.0" layoutY="97.0" prefHeight="26.0" prefWidth="179.0" promptText="Last Name" />
+      <Button layoutX="239.0" layoutY="437.0" mnemonicParsing="false" onAction="#addAuthor" prefHeight="34.0" prefWidth="264.0" stylesheets="@style/style.css" text="Add Author" textFill="WHITE" />
+      <TextField fx:id="txtPhoneNumber" layoutX="506.0" layoutY="97.0" prefHeight="26.0" prefWidth="179.0" promptText="Phone Number" />
+      <Label layoutX="53.0" layoutY="64.0" text="Personal Information">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="txtShortBio" layoutX="53.0" layoutY="152.0" prefHeight="108.0" prefWidth="635.0" promptText="Short Bio" />
+      <Label layoutX="54.0" layoutY="287.0" text="Address Information">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtStreet" layoutX="54.0" layoutY="319.0" prefHeight="26.0" prefWidth="270.0" promptText="Street" />
+      <TextField fx:id="txtCity" layoutX="383.0" layoutY="319.0" prefHeight="26.0" prefWidth="305.0" promptText="City" />
+      <TextField fx:id="txtState" layoutX="54.0" layoutY="377.0" prefHeight="26.0" prefWidth="270.0" promptText="State" />
+      <TextField fx:id="txtZip" layoutX="383.0" layoutY="377.0" prefHeight="26.0" prefWidth="305.0" promptText="Zip" />
+      <Separator layoutX="54.0" layoutY="274.0" prefHeight="0.0" prefWidth="635.0" />
+   </children>
+</AnchorPane>

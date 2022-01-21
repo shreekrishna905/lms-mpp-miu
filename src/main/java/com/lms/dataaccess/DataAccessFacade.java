@@ -34,6 +34,14 @@ public class DataAccessFacade implements DataAccess, Serializable {
 		saveToStorage(StorageType.MEMBERS, mems);	
 	}
 
+	@Override
+	public void saveNewBook(Book book) {
+		HashMap<String, Book> mems = readBooksMap();
+		String isbn = book.getIsbn();;
+		mems.put(isbn, book);
+		saveToStorage(StorageType.BOOKS, mems);
+	}
+
 	public void saveNewCheckout(CheckoutRecord checkoutRecord){
 		HashMap<String, CheckoutRecord> mems = readCheckoutMap();
 		if(mems==null){

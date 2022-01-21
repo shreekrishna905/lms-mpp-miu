@@ -44,7 +44,11 @@ public class LoginViewWindow extends Stage implements Window{
                 checkoutWindow.init();
                 ApplicationInfo.show(checkoutWindow);
             }
-            case BOTH -> AddBookWindow.INSTANCE.init();
+            case BOTH -> {
+                SuperAdminWindow superAdminWindow = SuperAdminWindow.INSTANCE;
+                superAdminWindow.init();
+                ApplicationInfo.show(superAdminWindow);
+            }
         }
     }
 

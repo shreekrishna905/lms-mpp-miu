@@ -13,6 +13,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="374.0" prefWidth="523.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lms.controller.AddBookController">
    <children>
       <Pane prefHeight="54.0" prefWidth="523.0" style="-fx-background-color: #3f2863;">
@@ -24,11 +27,18 @@
             </Label>
          </children>
       </Pane>
-      <TextField layoutX="53.0" layoutY="79.0" prefHeight="26.0" prefWidth="195.0" promptText="Title" />
-      <TextField layoutX="287.0" layoutY="79.0" prefHeight="26.0" prefWidth="179.0" promptText="ISBN" />
-      <Button layoutX="130.0" layoutY="314.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="264.0" stylesheets="@style/style.css" text="Add Book" textFill="WHITE" />
-      <ComboBox layoutX="53.0" layoutY="125.0" opacity="0.73" prefHeight="26.0" prefWidth="195.0" promptText="Duration" />
-      <TextField layoutX="287.0" layoutY="125.0" prefHeight="26.0" prefWidth="179.0" promptText="Number of copy" />
+      <TextField fx:id="txtTitle" layoutX="53.0" layoutY="79.0" prefHeight="26.0" prefWidth="195.0" promptText="Title" />
+      <TextField fx:id="txtIsbn" layoutX="287.0" layoutY="79.0" prefHeight="26.0" prefWidth="179.0" promptText="ISBN" />
+      <Button layoutX="130.0" layoutY="314.0" mnemonicParsing="false" onAction="#addBook" prefHeight="34.0" prefWidth="264.0" stylesheets="@style/style.css" text="Add Book" textFill="WHITE" />
+      <ComboBox fx:id="cbDuration" layoutX="53.0" layoutY="125.0" opacity="0.73" prefHeight="26.0" prefWidth="195.0" promptText="Duration" >
+          <items>
+              <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="7" />
+                  <String fx:value="21" />
+              </FXCollections>
+          </items>
+      </ComboBox>
+      <TextField fx:id="txtNumberOfCopy" layoutX="287.0" layoutY="125.0" prefHeight="26.0" prefWidth="179.0" promptText="Number of copy" />
       <GridPane layoutX="53.0" layoutY="159.0" prefHeight="130.0" prefWidth="414.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -38,14 +48,24 @@
           <RowConstraints maxHeight="84.4" minHeight="10.0" prefHeight="76.00001220703125" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" stylesheets="@style/style.css" text="Add Author" />
-            <TableView prefHeight="104.0" prefWidth="414.0" stylesheets="@style/style.css" GridPane.rowIndex="1">
+            <Button fx:id="btnAddAuthor" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#addAuthor" stylesheets="@style/style.css" text="Add Author" />
+            <TableView fx:id="tblAuthor" prefHeight="104.0" prefWidth="414.0" stylesheets="@style/style.css" GridPane.rowIndex="1">
               <columns>
-                <TableColumn prefWidth="86.40003204345703" text="FIRST NAME" />
-                <TableColumn prefWidth="76.79998779296875" text="LAST NAME" />
-                  <TableColumn prefWidth="70.39996337890625" text="ADDRESS" />
-                  <TableColumn prefWidth="87.20001220703125" text="PHONE NO" />
-                  <TableColumn prefWidth="93.5999755859375" text="SHORT BIO" />
+                <TableColumn prefWidth="86.40003204345703" text="FIRST NAME">
+                    <cellValueFactory><PropertyValueFactory property="firstName" /></cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="76.79998779296875" text="LAST NAME" >
+                    <cellValueFactory><PropertyValueFactory property="lastName" /></cellValueFactory>
+                </TableColumn>
+                  <TableColumn prefWidth="70.39996337890625" text="ADDRESS">
+                      <cellValueFactory><PropertyValueFactory property="address" /></cellValueFactory>
+                  </TableColumn>
+                  <TableColumn prefWidth="87.20001220703125" text="PHONE NO">
+                      <cellValueFactory><PropertyValueFactory property="phoneNumber" /></cellValueFactory>
+                  </TableColumn>
+                  <TableColumn prefWidth="93.5999755859375" text="SHORT BIO">
+                      <cellValueFactory><PropertyValueFactory property="shortBio" /></cellValueFactory>
+                  </TableColumn>
               </columns>
             </TableView>
          </children>

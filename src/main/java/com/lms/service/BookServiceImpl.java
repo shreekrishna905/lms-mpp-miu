@@ -39,5 +39,10 @@ public class BookServiceImpl implements BookService{
     @Override
     public HashMap<String, Book> getAll() {
         return dataAccess.readBooksMap();
+    };
+
+    @Override
+    public void save(Book book) {
+        dataAccess.saveNewBook(book);
     }
 }
