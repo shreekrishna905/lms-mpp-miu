@@ -53,7 +53,7 @@
                   <Insets left="40.0" />
                </padding>
             </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="194.0" styleClass="button-menu" stylesheets="@style/style.css" text="Logout">
+            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#logout" prefHeight="43.0" prefWidth="194.0" styleClass="button-menu" stylesheets="@style/style.css" text="Logout">
                <padding>
                   <Insets left="40.0" />
                </padding>
@@ -82,7 +82,7 @@
                   </TableView>
                   <HBox prefHeight="18.0" prefWidth="483.0" spacing="10.0">
                      <children>
-                        <TextField prefHeight="26.0" prefWidth="224.0" fx:id="searchTextField" style="-fx-border-color: #353B63;" />
+                        <TextField fx:id="searchTextField" prefHeight="26.0" prefWidth="224.0" style="-fx-border-color: #353B63;" />
                         <Button graphicTextGap="10.0" mnemonicParsing="false" onAction="#searchMember" prefHeight="26.0" prefWidth="109.0" stylesheets="@style/style.css" text="SEARCH" />
                         <Button graphicTextGap="10.0" mnemonicParsing="false" onAction="#addMemberRoute" prefHeight="26.0" prefWidth="163.0" stylesheets="@style/style.css" text="Add Member" />
                      </children>

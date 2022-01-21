@@ -7,6 +7,7 @@ import com.lms.service.MemberService;
 import com.lms.service.MemberServiceImpl;
 import com.lms.ui.AddMember;
 
+import com.lms.ui.LoginViewWindow;
 import com.lms.utils.ApplicationInfo;
 
 import com.lms.utils.Constants;
@@ -86,6 +87,12 @@ public class MemberViewController implements Initializable {
 
         });
         membersTable.setItems(memberList);
+    }
+
+    @FXML
+    public void logout(ActionEvent event){
+        ApplicationInfo.currentAuth = null;
+        ApplicationInfo.show(new LoginViewWindow());
     }
 
     @Override

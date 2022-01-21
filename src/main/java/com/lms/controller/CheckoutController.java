@@ -6,6 +6,7 @@ import com.lms.dataaccess.DataAccessFacade;
 import com.lms.exception.EntityNotFoundException;
 import com.lms.service.CheckoutService;
 import com.lms.service.CheckoutServiceImpl;
+import com.lms.ui.LoginViewWindow;
 import com.lms.utils.*;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -55,6 +56,12 @@ public class CheckoutController {
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(DataAccessFacade.DATE_PATTERN);
         rowData = new RowData(checkoutRecord.getLibraryMember().getMemberId(), checkoutRecord.getBookCopy().getBook().getIsbn(),checkoutRecord.getCheckoutDateTime().format(dateTimeFormatter),checkoutRecord.getDueDateTime().format(dateTimeFormatter));
         tblCheckout.setItems(FXCollections.observableArrayList(new RowData(checkoutRecord.getLibraryMember().getMemberId(),checkoutRecord.getBookCopy().getBook().getIsbn(),checkoutRecord.getCheckoutDateTime().format(dateTimeFormatter),checkoutRecord.getDueDateTime().format(dateTimeFormatter))));
+    }
+
+    @FXML
+    public void logout(ActionEvent event){
+        ApplicationInfo.currentAuth = null;
+        ApplicationInfo.show(new LoginViewWindow());
     }
 
 
