@@ -10,7 +10,8 @@ public class ApplicationStartUp extends Application {
 
     @Override
     public void start(Stage stage) {
-        stage = new BookViewWindow();
+
+        stage = new LoginViewWindow();
         ApplicationInfo.currentStage = stage;
         stage.show();
     }
