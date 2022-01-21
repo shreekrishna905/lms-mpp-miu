@@ -7,6 +7,7 @@ import com.lms.exception.EntityNotFoundException;
 import com.lms.service.CheckoutService;
 import com.lms.service.CheckoutServiceImpl;
 import com.lms.ui.LoginViewWindow;
+import com.lms.ui.OverdueWindow;
 import com.lms.utils.*;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -38,6 +39,11 @@ public class CheckoutController {
             return;
         System.out.format("%-15s%-15s%-15s%-15s\n", "MEMBER ID","ISBN", "CHECKOUT DATE", "DUE DATE");
         System.out.format("%-15d%-15s%-15s%-15s\n", rowData.getMemberId(), rowData.getIsbn(), rowData.getCheckoutDate(), rowData.getDueDate());
+    }
+
+    @FXML
+    public void overdue(){
+        ApplicationInfo.show(new OverdueWindow());
     }
 
     @FXML

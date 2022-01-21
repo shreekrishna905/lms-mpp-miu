@@ -49,7 +49,7 @@
                   <Insets left="40.0" />
                </padding>
             </Button>
-             <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="190.0" styleClass="button-menu" stylesheets="@style/style.css" text="Overdues">
+             <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="43.0" onAction="#overdue" prefWidth="190.0" styleClass="button-menu" stylesheets="@style/style.css" text="Overdues">
                  <padding>
                      <Insets left="40.0" />
                  </padding>

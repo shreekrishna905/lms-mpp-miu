@@ -82,7 +82,7 @@
                   </TableView>
                   <HBox prefHeight="18.0" prefWidth="483.0" spacing="10.0">
                      <children>
-                        <TextField fx:id="searchTextField" prefHeight="26.0" prefWidth="224.0" style="-fx-border-color: #353B63;" />
+                        <TextField fx:id="searchTextField" prefHeight="26.0" prefWidth="224.0" onAction="#searchMember" style="-fx-border-color: #353B63;" />
                         <Button graphicTextGap="10.0" mnemonicParsing="false" onAction="#searchMember" prefHeight="26.0" prefWidth="109.0" stylesheets="@style/style.css" text="SEARCH" />
                         <Button graphicTextGap="10.0" mnemonicParsing="false" onAction="#addMemberRoute" prefHeight="26.0" prefWidth="163.0" stylesheets="@style/style.css" text="Add Member" />
                      </children>

@@ -6,4 +6,6 @@ public interface CheckoutService {
 
     CheckoutRecord checkout(String memberId, String isbn);
 
+    CheckoutRecord searchByIsbn(String isbn);
+
 }
