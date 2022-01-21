@@ -1,4 +1,4 @@
-package com.lms.utils;
+package com.lms.exception;
 
 public class EntityNotFoundException extends RuntimeException{
 

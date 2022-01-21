@@ -1,6 +1,6 @@
 package com.lms.business;
 
-import com.lms.utils.EntityNotFoundException;
+import com.lms.exception.EntityNotFoundException;
 
 import java.io.Serializable;
 import java.util.ArrayList;

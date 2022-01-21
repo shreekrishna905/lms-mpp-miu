@@ -5,9 +5,8 @@ import com.lms.business.BookCopy;
 import com.lms.business.CheckoutRecord;
 import com.lms.business.LibraryMember;
 import com.lms.dataaccess.DataAccess;
-import com.lms.utils.EntityNotFoundException;
+import com.lms.exception.EntityNotFoundException;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Map;
 
