@@ -57,8 +57,8 @@ public class SearchCheckoutController extends MenuController implements Initiali
 
     @FXML
     public void print(ActionEvent event){
+        System.out.format("%-15s%-15s%-15s%-15s\n", "MEMBER ID","ISBN", "CHECKOUT DATE", "DUE DATE");
         for(CheckoutController.RowData rowData: rows){
-            System.out.format("%-15s%-15s%-15s%-15s\n", "MEMBER ID","ISBN", "CHECKOUT DATE", "DUE DATE");
             System.out.format("%-15s%-15s%-15s%-15s\n", rowData.getMemberId(),rowData.getIsbn(), rowData.getCheckoutDate(), rowData.getDueDate());
         }
     }
