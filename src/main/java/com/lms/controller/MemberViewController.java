@@ -123,6 +123,7 @@ public class MemberViewController extends MenuController implements Initializabl
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        super.initialize(url,resourceBundle);
         loadMembersInTable();
     }
 }
