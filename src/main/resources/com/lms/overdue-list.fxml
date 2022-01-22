@@ -104,6 +104,9 @@
                                 <TableColumn prefWidth="212.800048828125" text="DUE DATE">
                                     <cellValueFactory><PropertyValueFactory property="dueDate" /></cellValueFactory>
                                 </TableColumn>
+                                <TableColumn prefWidth="212.800048828125" text="FINE">
+                                    <cellValueFactory><PropertyValueFactory property="fine" /></cellValueFactory>
+                                </TableColumn>
                             </columns>
                         </TableView>
                         <HBox prefHeight="18.0" prefWidth="483.0" spacing="10.0">
