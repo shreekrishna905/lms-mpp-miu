@@ -5,12 +5,8 @@ import com.lms.dataaccess.DataAccessFacade;
 import com.lms.exception.InvalidMemberException;
 import com.lms.service.MemberService;
 import com.lms.service.MemberServiceImpl;
-import com.lms.ui.AddMember;
-
-import com.lms.ui.BookViewWindow;
-import com.lms.ui.LoginViewWindow;
+import com.lms.ui.*;
 import com.lms.utils.ApplicationInfo;
-
 import com.lms.utils.Constants;
 import com.lms.utils.LmsDialog;
 import com.lms.utils.Validator;
@@ -18,19 +14,12 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-import java.net.URL;
-import java.util.ResourceBundle;
 
-
-public class MemberViewController implements Initializable {
+public class MemberViewController extends MenuController implements Initializable {
 
     private MemberService memberService = new MemberServiceImpl(new DataAccessFacade());
 
@@ -58,6 +47,19 @@ public class MemberViewController implements Initializable {
 
     @FXML
     private TextField searchTextField;
+
+    @FXML
+    private Button btnMember;
+
+    @FXML
+    private Button btnSearch;
+    @FXML
+    private Button btnCheckout;
+    @FXML
+    private Button btnBook;
+
+    @FXML
+    private Button btnOverdue;
 
 
     @FXML
@@ -97,12 +99,23 @@ public class MemberViewController implements Initializable {
     }
 
     @FXML
+    public void showCheckout(ActionEvent event){
+        ApplicationInfo.show(new CheckoutWindow());
+    }
+
+    @FXML
+    public void showSearchCheckoutWindow(ActionEvent event){
+        ApplicationInfo.show(new SearchCheckoutWindow());
+    }
+
+    @FXML
+    public void showOverdue(ActionEvent event){
+        ApplicationInfo.show(new OverdueWindow());
+    }
+
+    @FXML
     public void showBook(ActionEvent event){
         ApplicationInfo.show(new BookViewWindow());
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        loadMembersInTable();
-    }
 }

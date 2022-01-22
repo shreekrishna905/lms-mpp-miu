@@ -26,7 +26,7 @@ import java.net.URL;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
-public class OverdueController {
+public class OverdueController extends MenuController implements Initializable {
 
     private CheckoutService checkoutService = new CheckoutServiceImpl(new DataAccessFacade());
 

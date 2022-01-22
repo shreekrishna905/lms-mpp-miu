@@ -43,12 +43,12 @@
                   <Insets left="40.0" />
                </padding>
             </Button>
-            <Button fx:id="btnCheckout1" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#showCheckoutWindow" prefHeight="43.0" prefWidth="189.0" styleClass="button-menu" stylesheets="@style/style.css" text="Search">
+            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#showSearchWindow" prefHeight="43.0" prefWidth="189.0" styleClass="button-menu" stylesheets="@style/style.css" text="Search">
                <padding>
                   <Insets left="40.0" />
                </padding>
             </Button>
-            <Button fx:id="btnCheckout11" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#showCheckoutWindow" prefHeight="43.0" prefWidth="189.0" styleClass="button-menu" stylesheets="@style/style.css" text="Overdues">
+            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#showOverdueWindow" prefHeight="43.0" prefWidth="189.0" styleClass="button-menu" stylesheets="@style/style.css" text="Overdues">
                <padding>
                   <Insets left="40.0" />
                </padding>

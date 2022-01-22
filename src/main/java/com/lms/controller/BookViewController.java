@@ -5,10 +5,7 @@ import com.lms.dataaccess.DataAccessFacade;
 import com.lms.exception.InvalidMemberException;
 import com.lms.service.BookService;
 import com.lms.service.BookServiceImpl;
-import com.lms.ui.AddBookWindow;
-import com.lms.ui.BookViewWindow;
-import com.lms.ui.LoginViewWindow;
-import com.lms.ui.MemberViewWindow;
+import com.lms.ui.*;
 import com.lms.utils.ApplicationInfo;
 import com.lms.utils.Constants;
 import com.lms.utils.LmsDialog;
@@ -18,13 +15,16 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class BookViewController implements Initializable {
+public class BookViewController extends MenuController implements Initializable {
 
     private DataAccessFacade dataAccessFacade = new DataAccessFacade();
 
@@ -43,9 +43,6 @@ public class BookViewController implements Initializable {
 
     @FXML
     private TextField isbnSearchText;
-
-    @FXML
-    private Button searchBook;
 
     @FXML
     private TableView tableBook;
@@ -101,9 +98,25 @@ public class BookViewController implements Initializable {
         ApplicationInfo.show(new MemberViewWindow());
     }
 
+    @FXML
+    public void showCheckout(ActionEvent event){
+        ApplicationInfo.show(new CheckoutWindow());
+    }
+
+    @FXML
+    public void showSearchCheckoutWindow(ActionEvent event){
+        ApplicationInfo.show(new SearchCheckoutWindow());
+    }
+
+    @FXML
+    public void showOverdue(ActionEvent event){
+        ApplicationInfo.show(new OverdueWindow());
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadBooksInTable();
+        super.initialize(url,resourceBundle);
     }
 
 

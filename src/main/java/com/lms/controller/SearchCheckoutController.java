@@ -1,27 +1,29 @@
 package com.lms.controller;
 
 import com.lms.business.LibraryMember;
+import com.lms.dataaccess.Auth;
 import com.lms.dataaccess.DataAccessFacade;
 import com.lms.service.MemberService;
 import com.lms.service.MemberServiceImpl;
-import com.lms.ui.CheckoutWindow;
-import com.lms.ui.LoginViewWindow;
-import com.lms.ui.OverdueWindow;
+import com.lms.ui.*;
 import com.lms.utils.ApplicationInfo;
 import com.lms.utils.Constants;
 import com.lms.utils.LmsDialog;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
+import java.net.URL;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
-public class SearchCheckoutController {
+public class SearchCheckoutController extends MenuController implements Initializable {
 
     private MemberService memberService = new MemberServiceImpl(new DataAccessFacade());
 
@@ -67,6 +69,16 @@ public class SearchCheckoutController {
     }
 
     @FXML
+    public void showMemberWindow(ActionEvent event){
+        ApplicationInfo.show(new MemberViewWindow());
+    }
+
+    @FXML
+    public void showBookWindow(ActionEvent event){
+        ApplicationInfo.show(new BookViewWindow());
+    }
+
+    @FXML
     public void showOverDues(){
         ApplicationInfo.show(new OverdueWindow());
     }
@@ -76,4 +88,5 @@ public class SearchCheckoutController {
         ApplicationInfo.currentAuth = null;
         ApplicationInfo.show(new LoginViewWindow());
     }
+
 }

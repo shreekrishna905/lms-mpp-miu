@@ -37,27 +37,27 @@
                   </ImageView>
                </children>
             </Pane>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#showCheckout" prefHeight="43.0" prefWidth="190.0" styleClass="button-menu" stylesheets="@style/style.css" text="Member">
+            <Button fx:id="btnMember" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#showMemberWindow" prefHeight="43.0" prefWidth="190.0" styleClass="button-menu" stylesheets="@style/style.css" text="Member">
                <padding>
                   <Insets left="40.0" />
                </padding>
             </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#showCheckout" prefHeight="43.0" prefWidth="190.0" styleClass="button-menu" stylesheets="@style/style.css" text="Book">
+            <Button fx:id="btnBook" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#showBookWindow" prefHeight="43.0" prefWidth="190.0" styleClass="button-menu" stylesheets="@style/style.css" text="Book">
                <padding>
                   <Insets left="40.0" />
                </padding>
             </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#showCheckout" prefHeight="43.0" prefWidth="190.0" styleClass="button-menu" stylesheets="@style/style.css" text="Checkout">
+            <Button fx:id="btnCheckout" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#showCheckout" prefHeight="43.0" prefWidth="190.0" styleClass="button-menu" stylesheets="@style/style.css" text="Checkout">
                <padding>
                   <Insets left="40.0" />
                </padding>
             </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="190.0" style="-fx-background-color: #7156DD;" styleClass="button-menu" stylesheets="@style/style.css" text="Search">
+            <Button fx:id="btnSearch" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="190.0" style="-fx-background-color: #7156DD;" styleClass="button-menu" stylesheets="@style/style.css" text="Search">
                <padding>
                   <Insets left="40.0" />
                </padding>
             </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#showOverDues" prefHeight="43.0" prefWidth="194.0" styleClass="button-menu" stylesheets="@style/style.css" text="Overdues">
+            <Button fx:id="btnOverdue" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#showOverDues" prefHeight="43.0" prefWidth="194.0" styleClass="button-menu" stylesheets="@style/style.css" text="Overdues">
                <padding>
                   <Insets left="40.0" />
                </padding>

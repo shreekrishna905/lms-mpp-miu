@@ -1,9 +1,6 @@
 package com.lms.controller;
 
-import com.lms.ui.AddBookWindow;
-import com.lms.ui.CheckoutWindow;
-import com.lms.ui.LoginViewWindow;
-import com.lms.ui.MemberViewWindow;
+import com.lms.ui.*;
 import com.lms.utils.ApplicationInfo;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -23,8 +20,13 @@ public class SuperAdminController {
 
     @FXML
     public void showBookWindow(ActionEvent event){
-        ApplicationInfo.show(new AddBookWindow());
+        ApplicationInfo.show(new BookViewWindow());
     }
+
+    @FXML
+    public void showSearchWindow(ActionEvent event){ApplicationInfo.show(new SearchCheckoutWindow());}
+
+    public void showOverdueWindow(ActionEvent event){ApplicationInfo.show(new OverdueWindow());}
 
     @FXML
     public void logout(ActionEvent event){
