@@ -44,7 +44,7 @@ public class TestData {
     //create library members
     public void libraryMemberData() {
 
-        LibraryMember libraryMember = new LibraryMember("1001", "Andy", "Rogers", "641-223-2211", addresses.get(4));
+        LibraryMember libraryMember = new LibraryMember("1", "Andy", "Rogers", "641-223-2211", addresses.get(4));
         members.add(libraryMember);
 
         libraryMember = new LibraryMember("1002", "Drew", "Stevens", "702-998-2414", addresses.get(5));
@@ -111,8 +111,8 @@ public class TestData {
     @SuppressWarnings("serial")
     List<Book> allBooks = new ArrayList<Book>() {
         {
-            add(new Book("23-11451", "The Big Fish", Duration.TWENTY_ONE, Arrays.asList(allAuthors.get(0), allAuthors.get(1))));
-            add(new Book("28-12331", "Antartica", Duration.SEVEN, Arrays.asList(allAuthors.get(2))));
+            add(new Book("1", "The Big Fish", Duration.TWENTY_ONE, Arrays.asList(allAuthors.get(0), allAuthors.get(1))));
+            add(new Book("2", "Antartica", Duration.SEVEN, Arrays.asList(allAuthors.get(2))));
             add(new Book("99-22223", "Thinking Java", Duration.TWENTY_ONE, Arrays.asList(allAuthors.get(3))));
             add(new Book("48-56882", "Jimmy's First Day of School", Duration.SEVEN, Arrays.asList(allAuthors.get(4))));
         }
