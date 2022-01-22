@@ -20,9 +20,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseButton;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 public class BookViewController implements Initializable {
 
@@ -42,10 +45,17 @@ public class BookViewController implements Initializable {
     private TableColumn duration;
 
     @FXML
+    private TableColumn noOfAvailableCopies;
+
+
+    @FXML
     private TextField isbnSearchText;
 
     @FXML
     private Button searchBook;
+
+    @FXML
+    private Button addCopy;
 
     @FXML
     private TableView tableBook;
@@ -54,9 +64,10 @@ public class BookViewController implements Initializable {
     @FXML
     private TableColumn title;
 
+    private Book selectedBook;
+
     @FXML
     public void searchBook(ActionEvent event) {
-        System.out.println("check");
         dataAccessFacade = new DataAccessFacade();
         String isbn = isbnSearchText.getText().trim();
         if (!isbn.isBlank()) {
@@ -74,6 +85,16 @@ public class BookViewController implements Initializable {
         }
     }
 
+    @FXML
+    public void addCopy(ActionEvent event) {
+        selectedBook.addCopy();
+        List<Book> books = bookObservableList.stream().filter(book -> !book.getIsbn().equals(selectedBook.getIsbn())).collect(Collectors.toList());
+        books.add(selectedBook);
+        bookObservableList.removeAll();
+        tableBook.getItems().clear();
+        bookObservableList.addAll(books);
+        bookService.save(selectedBook);
+    }
 
     public void loadBooksInTable() {
         bookObservableList.forEach(book -> {
@@ -81,6 +102,7 @@ public class BookViewController implements Initializable {
             title.setCellValueFactory(new PropertyValueFactory<>("title"));
             authorFirstNames.setCellValueFactory(new PropertyValueFactory<>("authors"));
             duration.setCellValueFactory(new PropertyValueFactory<>("duration"));
+            noOfAvailableCopies.setCellValueFactory(new PropertyValueFactory<>("noOfAvailableCopies"));
         });
         tableBook.setItems(bookObservableList);
     }
@@ -104,7 +126,17 @@ public class BookViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadBooksInTable();
+        tableBook.setRowFactory(yourTable -> {
+            TableRow<Book> row = new TableRow<Book>();
+            row.setOnMouseClicked(me -> {
+                addCopy.setDisable(false);
+                selectedBook = row.getItem();
+            });
+
+            return row;
+        });
     }
+
 
 
 }

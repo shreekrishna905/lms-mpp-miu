@@ -90,15 +90,19 @@
                      <children>
                         <TextField fx:id="isbnSearchText" prefHeight="26.0" prefWidth="224.0" style="-fx-border-color: #353B63;" />
                         <Button fx:id="searchBook" graphicTextGap="10.0" mnemonicParsing="false" onAction="#searchBook" prefHeight="26.0" prefWidth="109.0" stylesheets="@style/style.css" text="SEARCH" />
+
+                        <Button fx:id="addCopy" disable="true" graphicTextGap="10.0" layoutX="244.0" layoutY="10.0" mnemonicParsing="false" onAction="#addCopy" prefHeight="26.0" prefWidth="109.0" stylesheets="@style/style.css" text="Add Copy" />
+
                         <Button graphicTextGap="10.0" mnemonicParsing="false" onAction="#addBook" prefHeight="26.0" prefWidth="163.0" stylesheets="@style/style.css" text="Add Book" />
                      </children>
                   </HBox>
                   <TableView fx:id="tableBook" prefHeight="293.0" prefWidth="483.0" stylesheets="@style/style.css" GridPane.rowIndex="1">
                     <columns>
-                      <TableColumn fx:id="title" prefWidth="112.80006408691406" text="TITLE" />
-                      <TableColumn fx:id="isbn" text="ISBN" />
-                        <TableColumn fx:id="duration" prefWidth="95.20001220703125" text="DURATION" />
-                        <TableColumn fx:id="authorFirstNames" prefWidth="196.00006103515625" text="AUTHORS" />
+                      <TableColumn fx:id="title" prefWidth="99.20002746582031" text="TITLE" />
+                      <TableColumn fx:id="isbn" prefWidth="83.20001220703125" text="ISBN" />
+                        <TableColumn fx:id="duration" prefWidth="81.5999755859375" text="DURATION" />
+                        <TableColumn fx:id="authorFirstNames" prefWidth="81.60003662109375" text="AUTHORS" />
+                        <TableColumn fx:id="noOfAvailableCopies" prefWidth="135.99998779296874" text="Available Copies" />
                     </columns>
                   </TableView>
                </children>
