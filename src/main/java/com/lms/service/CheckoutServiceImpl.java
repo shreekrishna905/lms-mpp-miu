@@ -51,9 +51,9 @@ public class CheckoutServiceImpl implements CheckoutService{
     public CheckoutRecord searchByIsbn(String isbn) {
         HashMap<String, CheckoutRecord> mems = new DataAccessFacade().readCheckoutMap();
 
-        CheckoutRecord record = mems.values().stream().filter(r->{
+        CheckoutRecord record = mems.values().stream().filter(r-> {
             System.out.println("Checked out ISBN NO: "+r.getBookCopy().getBook().getIsbn());
-            return (r.getBookCopy().getBook().getIsbn().equals(isbn));
+            return (r.getBookCopy().getBook().getIsbn().equals(isbn.toLowerCase()));
         }).findFirst().orElse(null);
 
         return record;

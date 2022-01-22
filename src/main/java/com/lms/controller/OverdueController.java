@@ -1,6 +1,7 @@
 package com.lms.controller;
 
 import com.lms.business.Book;
+import com.lms.business.BookCopy;
 import com.lms.business.CheckoutRecord;
 import com.lms.dataaccess.DataAccessFacade;
 import com.lms.service.BookService;
@@ -23,7 +24,13 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class OverdueController extends MenuController implements Initializable {
@@ -32,7 +39,7 @@ public class OverdueController extends MenuController implements Initializable {
 
     private BookService bookService = new BookServiceImpl(new DataAccessFacade());
 
-    private RowData rowData;
+    private List<RowData> rowDataList;
 
     @FXML
     TextField isbnSearchTxtField;
@@ -61,35 +68,58 @@ public class OverdueController extends MenuController implements Initializable {
         if(isbn.isEmpty()){
             LmsDialog.infoBox(Alert.AlertType.ERROR, Constants.ERROR_TITLE,"ISBN cannot be empty");
         }
-        CheckoutRecord checkoutRecord = checkoutService.searchByIsbn(isbn.toLowerCase());
+        CheckoutRecord checkoutRecord = checkoutService.searchByIsbn(isbn);
         if(checkoutRecord==null){
             LmsDialog.infoBox(Alert.AlertType.ERROR, Constants.ERROR_TITLE,"Book Not Found");
             return;
         }
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(DataAccessFacade.DATE_PATTERN);
-        rowData = new OverdueController
-                .RowData(
-                        checkoutRecord.getLibraryMember().getFirstName()+" "+checkoutRecord.getLibraryMember().getLastName()
-        ,checkoutRecord.getBookCopy().getBook().getIsbn()
-        ,checkoutRecord.getBookCopy().getBook().getTitle()
-        ,checkoutRecord.getBookCopy().getBookCopyNumber()
-        ,checkoutRecord.getDueDateTime().format(dateTimeFormatter));
-
-        overdueTable.setItems(FXCollections.observableArrayList(rowData));
+        List<BookCopy> books = checkoutRecord.getBookCopy().getBook().getBookCopies();
+        addDataToTable(books,checkoutRecord);
+        overdueTable.setItems(FXCollections.observableArrayList(rowDataList));
     }
+
+    private void addDataToTable(List<BookCopy> books, CheckoutRecord checkoutRecord) {
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(DataAccessFacade.DATE_PATTERN);
+        RowData rowData;
+        rowDataList = new ArrayList<>();
+        for(BookCopy copy : books){
+            rowData = new OverdueController
+                    .RowData(
+                    checkoutRecord.getLibraryMember().getFirstName()+" "+checkoutRecord.getLibraryMember().getLastName()
+                    ,copy.getBook().getIsbn()
+                    ,copy.getBook().getTitle()
+                    ,copy.getBookCopyNumber()
+                    ,checkoutRecord.getDueDateTime().format(dateTimeFormatter)
+                    ,OverdueController.CalulateFine.getFine(checkoutRecord.getDueDateTime()));
+            rowDataList.add(rowData);
+        }
+    }
+
+    public static class CalulateFine{
+        public static String  getFine(LocalDateTime dueDate){
+            long daysDue =  LocalDate.now().until(dueDate, ChronoUnit.DAYS);
+            if(daysDue>0){
+                return String.valueOf(0.25 * daysDue);
+            }
+            return String.valueOf(0);
+        }
+    }
+
     public class RowData {
         String isbn;
         String title;
         String copyNo;
         String libraryMember;
         String dueDate;
+        String fine;
 
-        public RowData(String libraryMember, String isbn, String title, String copyNo,String dueDate){
+        public RowData(String libraryMember, String isbn, String title, String copyNo,String dueDate,String fine){
             this.isbn = isbn;
             this.title = title;
             this.copyNo =copyNo;
             this.dueDate = dueDate;
             this.libraryMember = libraryMember;
+            this.fine = fine;
         }
 
         public String getIsbn() {
@@ -119,5 +149,8 @@ public class OverdueController extends MenuController implements Initializable {
             return dueDate;
         }
 
+        public String getFine() {
+            return fine;
+        }
     }
 }
