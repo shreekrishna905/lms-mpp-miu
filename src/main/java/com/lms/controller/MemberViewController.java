@@ -18,6 +18,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 
 public class MemberViewController extends MenuController implements Initializable {
 
@@ -118,4 +121,8 @@ public class MemberViewController extends MenuController implements Initializabl
         ApplicationInfo.show(new BookViewWindow());
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        loadMembersInTable();
+    }
 }
